@@ -4,7 +4,7 @@
 ## 引入
 
 ```js
-import {Icon} from 'DawnUI'
+import {Icon} from 'sxb-react-comp'
 ```
 
 ## 代码演示

@@ -6,7 +6,7 @@
 
 ```js
 import React from 'react'
-import { Button } from 'DawnUI'
+import { Button } from 'sxb-react-comp'
 
 export default function Page() {
   return (

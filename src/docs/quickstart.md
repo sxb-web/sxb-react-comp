@@ -4,7 +4,7 @@
 
 ```bash
 # 通过 npm 安装
-npm i DawnUI -S
+npm i sxb-react-comp -S
 
 ## 引入组件
 
@@ -23,7 +23,7 @@ npm i babel-plugin-import -D
 {
   "plugins": [
     ["import", {
-      "libraryName": "DawnUI",
+      "libraryName": "sxb-react-comp",
       "libraryDirectory": "es",
       "style": true
     }]
@@ -34,18 +34,18 @@ npm i babel-plugin-import -D
 module.exports = {
   plugins: [
     ['import', {
-      libraryName: 'DawnUI',
+      libraryName: 'sxb-react-comp',
       libraryDirectory: 'es',
       style: true
-    }, 'DawnUI']
+    }, 'sxb-react-comp']
   ]
 };
 ```
 
 ```js
-// 接着你可以在代码中直接引入 DawnUI 组件
+// 接着你可以在代码中直接引入 sxb-react-comp 组件
 // 插件会自动将代码转化为方式二中的按需引入形式
-import { Button } from 'DawnUI';
+import { Button } from 'sxb-react-comp';
 ```
 
 ### 方式二. 手动按需引入组件
@@ -53,11 +53,11 @@ import { Button } from 'DawnUI';
 在不使用插件的情况下，可以手动引入需要的组件
 
 ```js
-import Button from 'DawnUI/lib/button';
-import 'DawnUI/lib/button/style';
+import Button from 'sxb-react-comp/lib/button';
+import 'sxb-react-comp/lib/button/style';
 ```
 
-### 方式三. DawnUI 也可以支持Tree Shaking
+### 方式三. sxb-react-comp 也可以支持Tree Shaking
 
 
 ## 进阶用法
@@ -87,4 +87,4 @@ module.exports = {
 };
 ```
 
-> 在配置 postcss-loader 时，应避免 ignore node_modules 目录，否则将导致 DawnUI 样式无法被编译
+> 在配置 postcss-loader 时，应避免 ignore node_modules 目录，否则将导致 sxb-react-comp 样式无法被编译

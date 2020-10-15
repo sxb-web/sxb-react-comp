@@ -6,7 +6,7 @@
 
 ```js
 import React from 'react'
-import { Cell } from 'DawnUI'
+import { Cell } from 'sxb-react-comp'
 
 export default function Page() {
   return <Cell name="余额" value="7895452" />
