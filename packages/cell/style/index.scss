@@ -1,0 +1,77 @@
+@import "../../style/variable";
+@import "../../style/minxis";
+.ui-cell {
+  position: relative;
+  min-height: 50px;
+  padding: 16px 15px;
+  font-family: $font-family;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  user-select: none;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 0;
+  .ui-cell_content {
+    line-height: 1.2;
+  }
+  .ui-cell_title {
+    font-size: 16px;
+    font-weight: 500;
+    color: $color-base;
+  }
+  .ui-cell_desc {
+    font-size: 12px;
+    margin-top: 3px;
+    color: $color-desc;
+  }
+  .ui-cell_value {
+    text-align: right;
+    font-size: 14px;
+    margin-left: 6px;
+    color: $color-desc;
+    flex: 1;
+    overflow: hidden;
+    @include text-ellipsis;
+    &.disabled {
+      color: $color-disabled;
+    }
+  }
+  .ui-cell-link {
+    margin-right: -3px;
+    margin-left: 3px;
+  }
+  .ui-cell_icon {
+    color: $color-desc;
+    margin-right: 8px;
+  }
+  .ui-cell_image {
+    background-color: $color-bg;
+    background-size: cover;
+    background-position: center;
+  }
+  &.border {
+    &:after {
+      position: absolute;
+      content: '';
+      left: 15px;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: $border-color;
+      transform: scaleY(0.5);
+    }
+  }
+  &.disabled {
+    cursor: not-allowed;
+    .ui-cell_title, .ui-cell_desc, .ui-cell_value {
+      color: $color-disabled;
+    }
+    &:active {
+      background-color: #fff;
+    }
+  }
+  &:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

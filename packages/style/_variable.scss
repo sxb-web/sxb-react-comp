@@ -1,0 +1,34 @@
+//component variable
+
+// base
+$color-base: #111A34; // 默认字体颜色
+$color-sup: #666f83; // 辅助字体颜色
+$color-desc: #858B9C; // 副标题和描述文字颜色
+$color-disabled: #C5CAD5; // 禁用文字颜色
+$color-primary: #2F86F6; // 高亮文字颜色
+$color-warn: #FF7D41; // 警告文字颜色
+$color-error: #FF5257; // 错误文字颜色
+$color-link: #5878B4; // 错误文字颜色
+
+$color-border: #E2E4EA; // 默认边框的颜色
+$color-bg: #F9FAFB; // 默认的背景色
+$color-bg-disabled: #E2E4EA;// 禁用的背景色
+$color-tap: #F9FAFB; // 按压的背景色
+$color-mask: rgba(37, 38, 45, .7); // 遮罩层背景色
+
+$font-family: 'Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,微软雅黑,Arial,sans-serif;'; // 默认字体
+
+$base-border-radius: 4px; // 基础的 border-radius
+$border-color: #e2e4ea;
+
+// button
+$button-border-radius: $base-border-radius; // 按钮的 默认 border-radius
+
+// cell
+
+
+
+// input
+
+$input-color: #111a34; // input 框 主颜色
+$input-placeholder-color: #C5CAD5; // input 框 placeholder 默认颜色

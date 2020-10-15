@@ -1,0 +1,30 @@
+// 多行省略
+@mixin text-multiple-ellipsis($n) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $n;
+  overflow: hidden;
+}
+
+@mixin text-ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin ios-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin full-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin square($v) {
+  width: $v;
+  height: $v;
+}

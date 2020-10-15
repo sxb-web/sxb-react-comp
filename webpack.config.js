@@ -1,45 +1,75 @@
+const path = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-module.exports =  {
-  mode: 'development',
-  entry: `./src/main.js`,
-  output: {
-    filename: '[name].js',
-    chunkFilename: '[name].js'
-  },
-  module: {
-    rules:[
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
+module.exports = (env, argv) => {
+  const prodMode = argv.mode === 'production'
+  return {
+    mode: prodMode ? 'production' : 'development',
+    entry: './src/main.js',
+    output: {
+      path: path.resolve(__dirname, './site'),
+      filename: prodMode ? '[name].[hash:8].js' : '[name].js',
+      chunkFilename: prodMode ? '[name].[chunkhash:8].js' : '[name].js',
+      publicPath: prodMode ? "/DawnUI/" : '/'
+    },
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                hmr: argv.mode !== 'production',
+              },
+            },
+            'css-loader']
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                hmr: argv.mode !== 'production',
+              },
+            },
+            'css-loader', 'sass-loader']
+        },
+        {
+          test: /\.js$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.md$/,
+          loader: 'raw-loader'
+        }
+      ]
+    },
+    plugins: [
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({template: `./src/index.html`}),
+      new MiniCssExtractPlugin({
+        filename: prodMode ? '[name].[contenthash:8].css' : '[name].css',
+        chunkFilename: prodMode ? '[id].[contenthash:8].css' : '[id].css',
+      }),
+    ],
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
       }
-    ]
-  },
-  resolve: {
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
+    },
+    devServer: {
+      host: 'localhost',
+      port: 3000,
+      // respond to 404s with index.html
+      historyApiFallback: true,
+      // open the browser
+      open: true,
+      hot: true
     }
-  },
-  plugins: [
-    new HtmlWebpackPlugin({template: `./src/index.html`})
-  ],
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
-  },
-  devServer: {
-    host: 'localhost',
-    port: 3000,
-    // respond to 404s with index.html
-    historyApiFallback: true,
-    // open the browser
-    open: true,
-    hot: true
   }
 }

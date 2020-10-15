@@ -1,0 +1,134 @@
+@import '../../style/variable';
+
+.ui-btn {
+  position: relative;
+  text-decoration: none;
+  border-radius: $button-border-radius;
+  font-family: $font-family;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  display: inline-block;
+  transition: all 0.3s;
+  font-weight: 500;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  word-break: keep-all;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    width: 200%;
+    height: 200%;
+    border: 2px solid $color-border;
+    box-sizing: border-box;
+    transform-origin: 0 0;
+    transform: scale(.5);
+    z-index: 2;
+    border-radius: $base-border-radius * 2;
+  }
+  &.round {
+    border-radius: 9999px;
+    &:after {
+      border-radius: 9999px;
+    }
+  }
+  &.block {
+    display: block;
+    width: 100%;
+  }
+  &:active {
+    opacity: .8;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    opacity: .5;
+  }
+}
+.ui-btn_default {
+  background-color: #fff;
+  color: $color-base;
+  &.plain {
+    background: transparent;
+  }
+}
+.ui-btn_primary {
+  background-color: $color-primary;
+  color: #fff;
+  &:after {
+    border-color: $color-primary;
+  }
+  &.plain {
+    background-color: transparent;
+    color: $color-primary;
+    &:after {
+      border-color: $color-primary;
+    }
+  }
+}
+.ui-btn_warn {
+  background-color: $color-warn;
+  color: #fff;
+  &:after {
+    border-color: $color-warn;
+  }
+  &.plain {
+    background-color: transparent;
+    color: $color-warn;
+    &:after {
+      border-color: $color-warn;
+    }
+  }
+}
+.ui-btn_danger {
+  background-color: $color-error;
+  color: #fff;
+  &:after {
+    border-color: $color-error;
+  }
+  &.plain {
+    background-color: transparent;
+    color: $color-error;
+    &:after {
+      border-color: $color-error;
+    }
+  }
+}
+.ui-btn_niello {
+  background: linear-gradient(55deg, #FFDD9A, #DCAC8C);
+  color: #5D2500;
+  &:after {
+    border-color: transparent;
+  }
+}
+
+.ui-btn_normal {
+  font-size: 14px;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 15px;
+}
+
+.ui-btn_large {
+  font-size: 16px;
+  line-height: 50px;
+  height: 50px;
+  padding: 0 16px;
+}
+.ui-btn_small {
+  height: 32px;
+  line-height: 32px;
+  padding: 0 10px;
+  font-size: 14px;
+}
+.ui-btn_mini {
+  height: 24px;
+  line-height: 24px;
+  padding: 0 5px;
+  font-size: 12px;
+}
