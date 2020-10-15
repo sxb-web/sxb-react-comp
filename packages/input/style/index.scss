@@ -1,0 +1,70 @@
+@import "../../style/variable";
+
+.ui-input {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  font-family: $font-family;
+  color: $color-base;
+  font-size: 16px;
+  padding: 0 15px;
+  &:after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 15px;
+    right: 0;
+    height: 1px;
+    background-color: $border-color;
+    transform: translateY(0.5);
+  }
+  .ui-input_label {
+    height: 50px;
+    line-height: 50px;
+    width: 80px;
+    margin-right: 10px;
+  }
+  .ui-input_control {
+    flex: 1;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+  }
+  .ui-input_item {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    line-height: 1.5;
+    border: none;
+    background: transparent;
+    outline: none;
+    resize: none;
+    color: $color-base;
+    font-size: 16px;
+    font-weight: 500;
+    &:focus ~ .ui-input_clear {
+      visibility: visible;
+    }
+  }
+  textarea.ui-input_item {
+    font-family: $font-family;
+    height: auto;
+    padding: 13px 0;
+    min-height: 50px;
+  }
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: $input-placeholder-color;
+  }
+  .ui-input_right {
+
+  }
+  .ui-input_clear {
+    visibility: hidden;
+    padding: 0 5px;
+    color: $input-placeholder-color;
+    font-size: 16px;
+    margin-left: 5px;
+  }
+}

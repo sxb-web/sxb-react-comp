@@ -32,6 +32,16 @@ const config = [
         doc: require('../../packages/cell/doc/index.md').default
       }
     ]
+  },
+  {
+    title: '表单',
+    groups: [
+      {
+        name: 'input 输入框',
+        path: '/input',
+        doc: require('../../packages/input/doc/index.md').default
+      }
+    ]
   }
 ]
 
