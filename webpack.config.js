@@ -63,8 +63,8 @@ module.exports = (env, argv) => {
       }
     },
     devServer: {
-      host: '192.168.0.8',
-      port: 3000,
+      host: 'localhost',
+      port: 8080,
       // respond to 404s with index.html
       historyApiFallback: true,
       // open the browser

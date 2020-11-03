@@ -5,6 +5,7 @@ import Button from '../../packages/button/demo'
 import Icon from '../../packages/icon/demo'
 import Cell from '../../packages/cell/demo'
 import Input from '../../packages/input/demo'
+import Overlay from '../../packages/overlay/demo'
 
 export default function Demos() {
   return (
@@ -14,6 +15,7 @@ export default function Demos() {
       <Route path="/demos/icon" children={<Icon />} />
       <Route path="/demos/cell" children={<Cell />} />
       <Route path="/demos/input" children={<Input />} />
+      <Route path="/demos/overlay" children={<Overlay />} />
       <Redirect to="/demos/index" />
     </Switch>
   )

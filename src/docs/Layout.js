@@ -42,6 +42,16 @@ const config = [
         doc: require('../../packages/input/doc/index.md').default
       }
     ]
+  },
+  {
+    title: '反馈组件',
+    groups: [
+      {
+        name: 'overlay',
+        path: '/overlay',
+        doc: require('../../packages/overlay/doc/index.md').default
+      }
+    ]
   }
 ]
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Icon from '../icon'
 import classNames from "../utils/classnames"
 import { trimValue, formatValueByGapStep, formatValueByGapRule } from '../utils/format'
@@ -23,11 +23,29 @@ export default function Input(props) {
 
   const cls = classNames("ui-input", className)
   const inputCls = classNames("ui-input_item", {disabled})
-  const {_type, _maxlength} = getInputRealType(type, maxLength)
-
+  const { _type, _maxLength } = getInputRealType(type, maxLength)
 
   function changeHandle(e) {
-    const v = e.target.value
+    const _e = {...e}
+    const idCardReg = /[^\dXx]/g
+    const numberReg = /\D/g
+    const digitReg = /[^\d.]/g
+    let v = e.target.value
+    if (type === 'idCard') {
+      v = trimValue(v.replace(idCardReg, ''))
+    } else if (type === 'phone' || type === 'bankCard') {
+      v = trimValue(v.replace(numberReg, ''))
+    } else if (type === 'money') {
+      v = trimValue(v.replace(digitReg, ''))
+    } else if (type === 'integer') {
+      v = trimValue(v.replace(numberReg, ''))
+    } else {
+      v = trimValue(v)
+    }
+    if (_maxLength) {
+      _e.target.value = v.substring(0, _maxLength)
+    }
+    onChange(_e)
   }
 
   // 对value 进行 format
@@ -36,15 +54,36 @@ export default function Input(props) {
       return ''
     }
     if (type === 'idCard') {
-      return formatValueByGapRule('6|8|4', trimValue(value))
+      return formatValueByGapRule('3|3|4|4|4', trimValue(value))
     } else if (type === 'bankCard') {
       return formatValueByGapStep(4, trimValue(value))
     } else if (type === 'money') {
-      return formatValueByGapStep(3, trimValue(value, ','), 'right', ',')
+      const arr = value.split('.')
+      const lastFix = arr[1] ? '.' + arr[1] : ''
+      return formatValueByGapStep(3, trimValue(arr[0], ','), 'right', ',') + lastFix
+    } else if (type === 'integer') {
+      return trimValue(value)
     } else if (type === 'phone') {
       return formatValueByGapRule('3|4|4', trimValue(value))
     } else {
       return trimValue(value)
+    }
+  }
+
+  // 根据类型 赋予input 合规的type 类型
+  function getInputRealType(type, maxLength) {
+    if (type === 'idCard') {
+      return {_type: 'text', _maxLength: 18}
+    } else if (type === 'digit' || type === 'integer') {
+      return {_type: 'tel', _maxLength: maxLength}
+    } else if (type === 'money') {
+      return {_type: 'text', _maxLength: maxLength}
+    } else if (type === 'phone') {
+      return {_type: 'tel', _maxLength: 11}
+    } else if (type === 'bankCard') {
+      return {_type: 'tel', _maxLength: maxLength}
+    } else {
+      return {_type: type, _maxLength: maxLength}
     }
   }
 
@@ -66,6 +105,7 @@ export default function Input(props) {
                 disabled={disabled}
                 placeholder={placeholder}
                 className={inputCls}
+                autoComplete="off"
                 onChange={changeHandle}
                 {...other}
               />
@@ -78,19 +118,4 @@ export default function Input(props) {
       }
     </div>
   )
-}
-
-// 根据类型 赋予input 合规的type 类型
-function getInputRealType(type, maxLength) {
-  if (type === 'idCard') {
-    return {_type: 'text', _maxLength: 18}
-  } else if (type === 'money' || type === 'digit') {
-    return {_type: 'number', _maxLength: maxLength}
-  } else if (type === 'bankCard' || type === 'integer') {
-    return {_type: 'tel', _maxLength: maxLength}
-  } else if (type === 'phone') {
-    return {_type: 'tel', _maxLength: 11}
-  } else {
-    return {_type: type, _maxLength: maxLength}
-  }
 }

@@ -67,7 +67,7 @@ export default function Index() {
         <div className="list">
           {
             iconList.map((item, index) => (
-              <div className="item mt-15">
+              <div className="item mt-15" key={index}>
                 <div><Icon name={item}  size="28px" /></div>
                 <p>{item}</p>
               </div>
