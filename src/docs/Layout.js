@@ -30,6 +30,11 @@ const config = [
         name: 'Cell 单元格',
         path: '/cell',
         doc: require('../../packages/cell/doc/index.md').default
+      },
+      {
+        name: 'Animation 动画',
+        path: '/animation',
+        doc: require('../../packages/animation/doc/index.md').default
       }
     ]
   },
