@@ -10,7 +10,6 @@ export default function Overlay(props) {
     transparent = false, // 遮罩层是否透明
     isShowLay = true, // 是否展示遮罩
     position = 'center', // 内容展示的区域
-
     close,
     container = document.body, // 挂在节点 默认是 document.body
     children
