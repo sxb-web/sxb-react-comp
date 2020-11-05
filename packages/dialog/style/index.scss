@@ -1,0 +1,48 @@
+@import "../../style/variable";
+@import "../../style/minxis";
+.ui-dialog {
+  overflow: hidden;
+  width: 320px;
+  font-family: $font-family;
+  background: #fff;
+  border-radius: 12px;
+  line-height: 1.2;
+  text-align: center;
+  .ui-dialog-title {
+    color: $color-base;
+    padding: 26px 26px 0 26px;
+    font-size: 20px;
+  }
+  .ui-dialog-cnt {
+    padding: 13px 26px 26px 26px;
+    font-size: 14px;
+    color: #666f83;
+    text-align: left;
+    &.center {
+      text-align: center;
+    }
+    &.right {
+      text-align: right;
+    }
+  }
+  .ui-dialog-actions {
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1px 0 0 #E2E4EA;
+    user-select: none;
+  }
+  .ui-dialog-cancel {
+    flex: 1;
+    box-shadow: 1px 0 0 0 #E2E4EA;
+    line-height: 50px;
+    @include text-ellipsis;
+  }
+  .ui-dialog-confirm {
+    flex: 1;
+    line-height: 50px;
+    color: $color-primary;
+    @include text-ellipsis;
+  }
+}

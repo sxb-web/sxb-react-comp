@@ -44,19 +44,22 @@ export default function Overlay(props) {
   function onAnimationEnd() {
     if (!show) {
       setMounted(false)
-      if (lockScroll) {
-        container.style.overflow = ''
-      }
-      el.current && container.removeChild(el.current)
     }
   }
 
   useEffect(() => {
     if (mounted) {
-      setMounted(true)
       if (lockScroll) {
         container.style.overflow = 'hidden'
         container.appendChild(el.current)
+      }
+    }
+    return () => {
+      if (mounted) {
+        if (lockScroll) {
+          container.style.overflow = ''
+        }
+        el.current && container.removeChild(el.current)
       }
     }
   }, [mounted])

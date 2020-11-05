@@ -7,6 +7,7 @@ import Cell from '../../packages/cell/demo'
 import Input from '../../packages/input/demo'
 import Overlay from '../../packages/overlay/demo'
 import Animation from '../../packages/animation/demo'
+import Dialog from '../../packages/dialog/demo'
 
 export default function Demos() {
   return (
@@ -18,6 +19,7 @@ export default function Demos() {
       <Route path="/demos/input" children={<Input />} />
       <Route path="/demos/overlay" children={<Overlay />} />
       <Route path="/demos/animation" children={<Animation />} />
+      <Route path="/demos/dialog" children={<Dialog />} />
       <Redirect to="/demos/index" />
     </Switch>
   )

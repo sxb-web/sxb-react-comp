@@ -52,9 +52,14 @@ const config = [
     title: '反馈组件',
     groups: [
       {
-        name: 'overlay',
+        name: 'Overlay 遮罩层',
         path: '/overlay',
         doc: require('../../packages/overlay/doc/index.md').default
+      },
+      {
+        name: 'Dialog 弹窗',
+        path: '/dialog',
+        doc: require('../../packages/dialog/doc/index.md').default
       }
     ]
   }
