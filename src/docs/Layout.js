@@ -60,6 +60,11 @@ const config = [
         name: 'Dialog 弹窗',
         path: '/dialog',
         doc: require('../../packages/dialog/doc/index.md').default
+      },
+      {
+        name: 'Loading 加载',
+        path: '/loading',
+        doc: require('../../packages/loading/doc/index.md').default
       }
     ]
   }

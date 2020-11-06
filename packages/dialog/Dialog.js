@@ -14,6 +14,7 @@ function Dialog(props) {
     content,
     confirm,
     cancel,
+    className,
     children
   } = props
 
@@ -32,7 +33,7 @@ function Dialog(props) {
       closeable={false}
       animation="zoom"
     >
-      <div className="ui-dialog">
+      <div className={`ui-dialog ${className}`}>
         { title && <div className="ui-dialog-title">{title}</div> }
         <div className={`ui-dialog-cnt ${textAlign}`}>
           { content && <div className="ui-dialog-content">{content}</div> }

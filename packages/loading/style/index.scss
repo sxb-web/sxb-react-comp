@@ -1,0 +1,133 @@
+@import "../../style/variable";
+
+.ui-loading {
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-family: $font-family;
+  &.vertical {
+    flex-direction: column;
+  }
+  .ui-loading-icon {
+  }
+  .ui-loading-cnt {
+    margin-left: 8px;
+    &.vertical {
+      margin-top: 8px;
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+  .ui-loading-spinner {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    animation: spinner-rotate 0.8s linear infinite ;
+    animation-timing-function: steps(12);
+    i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      &:before {
+        display: block;
+        width: 2px;
+        height: 25%;
+        margin: 0 auto;
+        background-color: currentColor;
+        border-radius: 40%;
+        content: ' ';
+      }
+      &:nth-of-type(1) {
+        transform: rotate(30deg);
+        opacity: 1;
+      }
+      &:nth-of-type(2) {
+        transform: rotate(60deg);
+        opacity: 0.9375;
+      }
+      &:nth-of-type(3) {
+        transform: rotate(90deg);
+        opacity: 0.875;
+      }
+      &:nth-of-type(4) {
+        transform: rotate(120deg);
+        opacity: 0.8125;
+      }
+      &:nth-of-type(5) {
+        transform: rotate(150deg);
+        opacity: 0.75;
+      }
+      &:nth-of-type(6) {
+        transform: rotate(180deg);
+        opacity: 0.6875;
+      }
+      &:nth-of-type(7) {
+        transform: rotate(210deg);
+        opacity: 0.625;
+      }
+      &:nth-of-type(8) {
+        transform: rotate(240deg);
+        opacity: 0.5625;
+      }
+      &:nth-of-type(9) {
+        transform: rotate(270deg);
+        opacity: 0.5;
+      }
+      &:nth-of-type(10) {
+        transform: rotate(300deg);
+        opacity: 0.4375;
+      }
+      &:nth-of-type(11) {
+        transform: rotate(330deg);
+        opacity: 0.375;
+      }
+      &:nth-of-type(12) {
+        transform: rotate(360deg);
+        opacity: 0.3125;
+      }
+    }
+  }
+  .ui-loading-circular {
+    animation: spinner-rotate 2s linear infinite ;
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    circle {
+      animation: spinner-circular 1.5s ease-in-out infinite;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+  }
+}
+
+@keyframes spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner-circular {
+
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -40;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -120;
+  }
+}
