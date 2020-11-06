@@ -1,7 +1,7 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
-import DemoRoutes from "./demos/Routes"
+import Demos from "./demos"
 import DocLayout from "./docs/Layout"
 import './app.scss'
 import Index from './Index'
@@ -11,7 +11,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact children={<Index />} />
-        <Route path="/demos" children={<DemoRoutes />} />
+        <Route path="/demos" children={<Demos />} />
         <Route path="/docs" children={<DocLayout />} />
         <Redirect to="/" />
       </Switch>

@@ -67,6 +67,16 @@ const config = [
         doc: require('../../packages/loading/doc/index.md').default
       }
     ]
+  },
+  {
+    title: '工具',
+    groups: [
+      {
+        name: '图片懒加载',
+        path: '/lazy-load',
+        doc: require('../../packages/lazy-load/doc/index.md').default
+      }
+    ]
   }
 ]
 

@@ -49,6 +49,11 @@ module.exports = (env, argv) => {
         }
       ]
     },
+    resolve: {
+      alias: {
+        'react-dom': '@hot-loader/react-dom'
+      }
+    },
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({template: `./src/index.html`}),
