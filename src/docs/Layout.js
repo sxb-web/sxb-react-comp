@@ -35,6 +35,11 @@ const config = [
         name: 'Animation 动画',
         path: '/animation',
         doc: require('../../packages/animation/doc/index.md').default
+      },
+      {
+        name: 'Image 图片',
+        path: '/image',
+        doc: require('../../packages/image/index.md').default
       }
     ]
   },
