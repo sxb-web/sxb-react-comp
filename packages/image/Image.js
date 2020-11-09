@@ -42,8 +42,6 @@ export default function Image(props) {
     ...other
   } = props
 
-  console.log(lazy)
-
   // resolve class
   className = className ? defaultClass + ' ' + className : defaultClass
 

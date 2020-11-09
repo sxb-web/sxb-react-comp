@@ -1,0 +1,19 @@
+@import "../../style/variable";
+.ui-toast {
+  min-width: 96px;
+  padding: 8px 12px;
+  line-height: 20px;
+  font-family: $font-family;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  background-color: $color-mask;
+  border-radius: 8px;
+  font-weight: 500;
+  .ui-toast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+  }
+}

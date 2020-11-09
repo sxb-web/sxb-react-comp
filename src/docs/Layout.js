@@ -70,6 +70,11 @@ const config = [
         name: 'Loading 加载',
         path: '/loading',
         doc: require('../../packages/loading/doc/index.md').default
+      },
+      {
+        name: 'Toast 轻提示',
+        path: '/toast',
+        doc: require('../../packages/toast/doc.md').default
       }
     ]
   },

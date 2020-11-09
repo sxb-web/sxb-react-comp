@@ -9,6 +9,7 @@ import Animation from '../../packages/animation/demo'
 import Dialog from '../../packages/dialog/demo'
 import LazyLoad from '../../packages/lazy-load/demo'
 import Loading from '../../packages/loading/demo'
+import Toast from '../../packages/toast/demo'
 import Image from '../../packages/image/demo'
 
 export default function Demos() {
@@ -23,6 +24,7 @@ export default function Demos() {
       <Route path="/demos/dialog" children={<Dialog />} />
       <Route path="/demos/lazy-load" children={<LazyLoad />} />
       <Route path="/demos/loading" children={<Loading />} />
+      <Route path="/demos/toast" children={<Toast />} />
       <Route path="/demos/image" children={<Image />} />
       <Redirect to="/demos/index" />
     </Switch>

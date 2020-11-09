@@ -59,7 +59,7 @@ export default function Index() {
 | position | 内容区位置 可选值 center、top、bottom、left、right。 | _string_ | `center` |
 | animation | 动画方式 详情见 `Animation` 组件 | _string_ | `fade` |
 | duration | 动画时间 | _number_ | `200` |
-| closeable | 点击遮罩层是否会关闭 | _boolean_ | `false` |
+| closeable | 点击遮罩层是否会关闭 | _boolean_ | `true` |
 | lockScroll | 是否锁定背景滚动 | _boolean_ | `true` |
 | transparent | 遮罩是否是透明，默认是黑色半透明 | _boolean_ | `false` |
 | isShowLay | 是否展示遮罩 | _boolean_ | `true` |
