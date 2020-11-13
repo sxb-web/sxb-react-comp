@@ -1,6 +1,10 @@
 @import "../../style/variable";
+@import "../../style/minxis";
 .ui-toast {
   min-width: 96px;
+  max-width: 90vw;
+  overflow: hidden;
+  margin: 0 auto;
   padding: 8px 12px;
   line-height: 20px;
   font-family: $font-family;
@@ -10,10 +14,22 @@
   background-color: $color-mask;
   border-radius: 8px;
   font-weight: 500;
+  &.with-icon {
+    max-width: 120px;
+  }
+  &.top {
+    margin-top: 100px;
+  }
+  &.bottom {
+    margin-bottom: 100px;
+  }
   .ui-toast-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px 0;
+  }
+  .ui-toast-message {
+    @include text-ellipsis;
   }
 }
