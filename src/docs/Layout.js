@@ -47,7 +47,7 @@ const config = [
     title: '表单',
     groups: [
       {
-        name: 'input 输入框',
+        name: 'input 输入框（未完成）',
         path: '/input',
         doc: require('../../packages/input/doc/index.md').default
       }
@@ -79,12 +79,12 @@ const config = [
     ]
   },
   {
-    title: '工具',
+    title: '展示组件',
     groups: [
       {
-        name: '图片懒加载',
-        path: '/lazy-load',
-        doc: require('../../packages/lazy-load/doc/index.md').default
+        name: 'sticky 吸顶组件',
+        path: '/sticky',
+        doc: require('../../packages/sticky/doc.md').default
       }
     ]
   }

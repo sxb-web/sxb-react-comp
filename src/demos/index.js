@@ -11,6 +11,7 @@ import LazyLoad from '../../packages/lazy-load/demo'
 import Loading from '../../packages/loading/demo'
 import Toast from '../../packages/toast/demo'
 import Image from '../../packages/image/demo'
+import Sticky from '../../packages/sticky/Demo'
 
 export default function Demos() {
   return (
@@ -26,6 +27,7 @@ export default function Demos() {
       <Route path="/demos/loading" children={<Loading />} />
       <Route path="/demos/toast" children={<Toast />} />
       <Route path="/demos/image" children={<Image />} />
+      <Route path="/demos/sticky" children={<Sticky />} />
       <Redirect to="/demos/index" />
     </Switch>
   )
