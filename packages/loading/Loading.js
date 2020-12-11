@@ -17,9 +17,11 @@ export default function Loading(props) {
           type === 'spinner' ? <Spinner size={size} color={color}  /> : <Circular size={size} color={color} />
         }
       </div>
-      <div className={`ui-loading-cnt ${vertical ? 'vertical' : ''}`} style={{color, fontSize: textSize + 'px'}}>
-        { children }
-      </div>
+      {children && (
+        <div className={`ui-loading-cnt ${vertical ? 'vertical' : ''}`} style={{color, fontSize: textSize + 'px'}}>
+          { children }
+        </div>
+      )}
     </div>
   )
 }
