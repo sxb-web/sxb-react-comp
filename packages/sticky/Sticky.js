@@ -49,7 +49,7 @@ export default function Sticky(props) {
 
   return (
     <div ref={root} style={{height: isFixed ? height + 'px' : 'auto'}}>
-      <div className={`ui-sticky ${isFixed ? 'ui-sticky-fixed' : ''}`} style={{top: isFixed ? transform + 'px' : 0}}>
+      <div className={`ui-sticky ${isFixed ? 'ui-sticky-fixed' : ''}`} style={createStyle(isFixed, transform, zIndex)}>
         { children }
       </div>
     </div>
@@ -57,5 +57,9 @@ export default function Sticky(props) {
 }
 
 function createStyle(isFixed, transform, zIndex) {
-
+  if (isFixed) {
+    return {top: transform + 'px', zIndex}
+  } else {
+    return null
+  }
 }
