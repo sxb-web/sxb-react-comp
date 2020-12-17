@@ -50,3 +50,25 @@ export function getVisibleHeight(el) {
   }
   return el.getBoundingClientRect().height
 }
+
+// js 缓动动画
+
+let prev = Date.now()
+
+function rafPolyfill(fn) {
+  const curr = Date.now()
+  const ms = Math.max(0, 16 - (curr - prev))
+  const id = setTimeout(fn, ms)
+  prev = curr + ms
+  return id
+}
+
+export function raf(fn) {
+  const requestAnimationFrame = window.requestAnimationFrame || rafPolyfill
+  return requestAnimationFrame.call(window, fn)
+}
+
+export function cancelRaf(id) {
+  const cancelAnimationFrame = window.cancelAnimationFrame || window.clearTimeout
+  cancelAnimationFrame.call(window, id)
+}

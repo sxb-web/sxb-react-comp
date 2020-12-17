@@ -12,6 +12,7 @@ import Loading from '../../packages/loading/demo'
 import Toast from '../../packages/toast/demo'
 import Image from '../../packages/image/demo'
 import Sticky from '../../packages/sticky/Demo'
+import Tabs from '../../packages/tabs/Demo'
 
 export default function Demos() {
   return (
@@ -28,6 +29,7 @@ export default function Demos() {
       <Route path="/demos/toast" children={<Toast />} />
       <Route path="/demos/image" children={<Image />} />
       <Route path="/demos/sticky" children={<Sticky />} />
+      <Route path="/demos/tabs" children={<Tabs />} />
       <Redirect to="/demos/index" />
     </Switch>
   )

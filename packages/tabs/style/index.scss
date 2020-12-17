@@ -1,0 +1,53 @@
+@import "../../style/variable";
+@import "../../style/minxis";
+
+.ui-tabs {
+  font-family: $font-family;
+  .ui-tabs-navs-warp {
+    height: 44px;
+    overflow: hidden;
+    &.ui-tabs-navs-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      .ui-tabs-nav {
+        flex: 1 0 auto;
+      }
+    }
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+  .ui-tabs-navs {
+    position: relative;
+    display: flex;
+    height: 44px;
+    user-select: none;
+  }
+  .ui-tabs-nav {
+    flex: 1;
+    text-align: center;
+    padding: 0 12px;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 44px;
+    color: $color-sup;
+    cursor: pointer;
+    @include text-ellipsis;
+    &.active {
+      color: $color-base;
+    }
+  }
+  .ui-tabs-line-warp {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    transition-duration: 0.3s;
+    .ui-tabs-line {
+      background: $color-primary;
+      border-radius: 3px;
+    }
+  }
+}

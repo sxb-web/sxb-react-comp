@@ -85,6 +85,11 @@ const config = [
         name: 'sticky 吸顶组件',
         path: '/sticky',
         doc: require('../../packages/sticky/doc.md').default
+      },
+      {
+        name: 'tabs 标签页',
+        path: '/tabs',
+        doc: require('../../packages/tabs/index.md').default
       }
     ]
   }
