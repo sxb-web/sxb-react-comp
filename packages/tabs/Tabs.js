@@ -1,9 +1,14 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ReactDom from 'react-dom'
 import Sticky from "../sticky"
 import { raf, cancelRaf } from "../utils"
 
 export default function Tabs(props) {
+
+  const [node, setNode] = useState(null)
+
+  const root = useRef(null)
+
   const {
     active = 0,
     color, // 主题色
@@ -14,7 +19,9 @@ export default function Tabs(props) {
     offset, // 开启粘性布局距离顶部距离
     lazy = true, // 是否开启延迟渲染
     children,
-    onChange
+    onClick,
+    onChange,
+    onScroll
   } = props
 
 
@@ -23,31 +30,41 @@ export default function Tabs(props) {
   }
 
   const titleList = children.map(item => (item.props.title || ''))
-  const contentList = children.map(item => (item.props.children || ''))
+
+  useEffect(() => {
+    setNode(root.current)
+  }, [])
 
   return (
-    <div className="ui-tabs">
-      <HeaderList
-        active={active}
-        titleList={titleList}
-        color={color}
-        background={background}
-        lineWidth={lineWidth}
-        lineHeight={lineHeight}
-        sticky={sticky}
+    <div className="ui-tabs" ref={root}>
+      <Sticky
+        disabled={!sticky}
         offset={offset}
-        onChange={onChange}
-      />
-      <ContentList active={active} lazy={lazy} list={contentList} />
+        scroll={onScroll}
+        container={node}
+      >
+        <HeaderList
+          active={active}
+          titleList={titleList}
+          color={color}
+          background={background}
+          lineWidth={lineWidth}
+          lineHeight={lineHeight}
+          onChange={onChange}
+          onClick={onClick}
+        />
+      </Sticky>
+      <ContentList active={active} lazy={lazy} list={children} />
     </div>
   )
 }
 
 let rafId
-function HeaderList({titleList, active, color, background, lineWidth, lineHeight, onChange}) {
+function HeaderList({titleList, active, color, background, lineWidth, lineHeight, onChange, onClick}) {
 
   const line = useRef(null)
   const scroller = useRef(null)
+  const scrollerStyle = background && {background}
 
   const list = titleList.map(item => {
     if (item) {
@@ -62,6 +79,7 @@ function HeaderList({titleList, active, color, background, lineWidth, lineHeight
   const isScroll = list.length > 5
 
   function changeHandle(index) {
+    onClick && onClick({index, name: list[index]})
     if (active !== index) {
       onChange(index)
     }
@@ -93,7 +111,7 @@ function HeaderList({titleList, active, color, background, lineWidth, lineHeight
   }, [active])
 
   return (
-    <div className={isScroll ? "ui-tabs-navs-warp  ui-tabs-navs-scroll" : "ui-tabs-navs-warp"} ref={scroller}>
+    <div className={isScroll ? "ui-tabs-navs-warp  ui-tabs-navs-scroll" : "ui-tabs-navs-warp"} ref={scroller} style={scrollerStyle}>
       <div className="ui-tabs-navs">
         {
           list.map((item, index) => (

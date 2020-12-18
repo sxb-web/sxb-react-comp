@@ -3,6 +3,7 @@ import { getScrollTop, getRootScrollTop, getVisibleHeight } from "../utils"
 
 export default function Sticky(props) {
   const {
+    disabled = false,
     offset = 0,
     zIndex = 99,
     container = null,
@@ -16,7 +17,7 @@ export default function Sticky(props) {
   const root = useRef(null)
 
   function onScroll() {
-    if (!root.current) {
+    if (!root.current || disabled) {
       return
     }
     const scrollTop = getRootScrollTop()
@@ -40,9 +41,11 @@ export default function Sticky(props) {
   }, [])
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll, false)
-    return () => {
-      window.removeEventListener('scroll', onScroll, false)
+    if (!disabled) {
+      window.addEventListener('scroll', onScroll, false)
+      return () => {
+        window.removeEventListener('scroll', onScroll, false)
+      }
     }
   }, [container])
 

@@ -62,6 +62,7 @@ export default function Page() {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| disabled | 是否开启吸顶 | _boolean_ | `false` |
 | offset | 吸顶距离 | _string_ | `0px` |
 | zIndex | 吸顶后的层级 | _string_ | `99` |
 | container | 容器对应的 HTML 节点 | _Element_ | `—` |
