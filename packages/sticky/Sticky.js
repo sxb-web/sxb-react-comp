@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react'
-import { getScrollTop, getRootScrollTop, getVisibleHeight } from "../utils"
+import { getRootScrollTop } from "../utils"
 
 export default function Sticky(props) {
   const {

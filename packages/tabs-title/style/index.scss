@@ -1,0 +1,36 @@
+@import "../../style/variable";
+.ui-tabs-title {
+  overflow: hidden;
+  width: 100%;
+  user-select: none;
+  .ui-tabs-title-list {
+    position: relative;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+    &.ui-tabs-title-list-scroll {
+      .ui-tabs-title-list-item {
+        flex: 1 0 auto;
+      }
+    }
+  }
+  .ui-tabs-title-list-item {
+    flex: 1;
+    text-align: center;
+  }
+  .ui-scroll-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 3px;
+    border-radius: 6px;
+    background-color: $color-primary;
+    transition: all 0.3s;
+  }
+}

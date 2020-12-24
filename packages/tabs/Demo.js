@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Tabs from "../tabs"
 import "../tabs/style/index"
 
+const l = [{id: 1, name: '生鲜'}, {id: 2, name: '水鲜'}, {id: 3, name: '花鲜'}]
 export default function Demo() {
 
   const [a, setA] = useState(0)
@@ -14,7 +15,7 @@ export default function Demo() {
     <div className="demo-page" style={{minHeight: '100vh', background: '#f8f8f8', paddingBottom: '1000px'}}>
       <div className="demo-page-title">基础用法</div>
       <div style={{margin: '0 -10px'}}>
-        <Tabs active={a} onChange={index => setA(index)} onClick={e => console.log(e)}>
+        <Tabs active={a} onChange={index => setA(index)}>
           {
             new Array(4).fill('').map((item, index) => <div className="section" title={`标签${index}`} key={index}>内容{index}</div>)
           }
@@ -33,6 +34,14 @@ export default function Demo() {
         <Tabs active={c} sticky onChange={index => setC(index)}>
           {
             new Array(10).fill('').map((item, index) => <div className="h-300 section" title={`标签${index}`} key={index}>内容{index}</div>)
+          }
+        </Tabs>
+      </div>
+      <div className="demo-page-title">自定义</div>
+      <div style={{margin: '0 -10px'}}>
+        <Tabs active={d} sticky onChange={index => setD(index)}>
+          {
+            new Array(10).fill('').map((item, index) => <div className="h-300 section" key={index}>内容{index}</div>)
           }
         </Tabs>
       </div>

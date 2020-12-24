@@ -87,6 +87,11 @@ const config = [
         doc: require('../../packages/sticky/doc.md').default
       },
       {
+        name: 'tabs-title',
+        path: '/tabs-title',
+        doc: require('../../packages/tabs-title/index.md').default
+      },
+      {
         name: 'tabs 标签页',
         path: '/tabs',
         doc: require('../../packages/tabs/index.md').default

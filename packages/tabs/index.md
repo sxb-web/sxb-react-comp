@@ -9,7 +9,6 @@ import { Tabs } from 'sxb-react-comp'
 // or
 import Tabs from "sxb-react-comp/lib/tabs"
 import 'sxb-react-comp/lib/tabs/style/css'
-const { Tab } = Tabs
 
 ```
 
@@ -19,44 +18,39 @@ const { Tab } = Tabs
 
 将内容包裹在 Sticky 组件内即可
 ```js
-<Sticky>
-   <Button type="primary">基础用法</Button>
-</Sticky>       
+<Tabs active={a} onChange={index => setA(index)}>
+  {
+    new Array(4).fill('').map((item, index) => <div className="section" title={`标签${index}`} key={index}>内容{index}</div>)
+  }
+</Tabs>
 ```
 
-### 吸顶距离
-通过 offset 属性可以设置组件在吸顶时与顶部的距离。
+### 滑动
+标签数量超过 5 个时，标签栏可以在水平方向上滚动，切换时会自动将当前标签居中, 可以通过threshold来控制阈值。
 
 ```js
-<Sticky offset="50px">
-   <Button type="primary">吸顶距离</Button>
-</Sticky>       
+<Tabs active={b} onChange={index => setB(index)}>
+  {
+    new Array(12).fill('').map((item, index) => <div className="section" title={`标签${index}`} key={index}>内容{index}</div>)
+  }
+</Tabs>      
 ```
 
-### 指定容器
-通过 container 属性可以指定组件的容器，页面滚动时，组件会始终保持在容器范围内，当组件即将超出容器底部时，会固定在容器的底部。
+### 吸顶
+通过 sticky 属性可以开启粘性布局，粘性布局下，标签页滚动到顶部时会自动吸顶。
 
-```jsx harmony
+```js
 
-import React from 'react'
-
-export default function Page() {
-  const [container, setContainer] = React.useState(null)
-
-  React.useEffect(() => {
-    setContainer(document.getElementById('container'))
-  }, [])
-
-  return (
-    <div id="container">
-      <Sticky container={container}>
-         <Button type="danger">指定容器</Button>
-      </Sticky>         
-    </div>
-  )    
-}
-
+<Tabs active={c} sticky onChange={index => setC(index)}>
+  {
+     new Array(10).fill('').map((item, index) => <div className="h-300 section" title={`标签${index}`} key={index}>内容{index}</div>)
+  }
+</Tabs>
 ```
+
+### 自定义
+
+
 
 ## API
 
@@ -64,13 +58,22 @@ export default function Page() {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| active | 绑定当前选中标签的标识符 | _ string _ | `0` |
+| background | 标签栏背景色 | _string_ | `#fff` |
+| lineColor | 底部条颜色 | _string_ | `blue` |
+| lineWidth | 底部条宽度 | _string_ | `40px` |
+| lineHeight | 底部条高度 | _string_ | `3px` |
+| threshold | 滚动阈值 | _number_ | `5` |
+| sticky | 是否开启吸顶 | _string_ | `0px` |
 | offset | 吸顶距离 | _string_ | `0px` |
 | zIndex | 吸顶后的层级 | _string_ | `99` |
-| container | 容器对应的 HTML 节点 | _Element_ | `—` |
+| lazy | 是否开启延时渲染 | _Boolean_ | `true` |
 
 ### Events
 
 | 事件名 | 说明 | 回调参数 |
 | --- | --- | --- |
-| scroll | 滚动时触发 | { scrollTop: 距离顶部位置, isFixed: 是否吸顶 } |
+| onScroll | 滚动时触发 | { scrollTop: 距离顶部位置, isFixed: 是否吸顶 } |
+| onChange | active 改变触发 | { index: 改变后的标识 } |
+| onClick | 点击触发 | { index: 点击的标识 } |
 

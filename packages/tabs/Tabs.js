@@ -11,19 +11,20 @@ export default function Tabs(props) {
 
   const {
     active = 0,
-    color, // 主题色
     background, // 标题背景色
+    lineColor,
     lineWidth = '40px',
     lineHeight = '3px',
+    threshold = 5, // 滚动阈值
     sticky = false, // 是否开启粘性布局
     offset, // 开启粘性布局距离顶部距离
+    zIndex,
     lazy = true, // 是否开启延迟渲染
     children,
     onClick,
     onChange,
     onScroll
   } = props
-
 
   if (!children) {
     return null
@@ -32,7 +33,9 @@ export default function Tabs(props) {
   const titleList = children.map(item => (item.props.title || ''))
 
   useEffect(() => {
-    setNode(root.current)
+    if (sticky) {
+      setNode(root.current)
+    }
   }, [])
 
   return (
@@ -40,13 +43,15 @@ export default function Tabs(props) {
       <Sticky
         disabled={!sticky}
         offset={offset}
+        zIndex={zIndex}
         scroll={onScroll}
         container={node}
       >
         <HeaderList
           active={active}
+          threshold={threshold}
           titleList={titleList}
-          color={color}
+          lineColor={lineColor}
           background={background}
           lineWidth={lineWidth}
           lineHeight={lineHeight}
@@ -60,26 +65,26 @@ export default function Tabs(props) {
 }
 
 let rafId
-function HeaderList({titleList, active, color, background, lineWidth, lineHeight, onChange, onClick}) {
+function HeaderList({titleList, threshold, active, lineColor, background, lineWidth, lineHeight, onChange, onClick}) {
 
   const line = useRef(null)
   const scroller = useRef(null)
   const scrollerStyle = background && {background}
+  const lineStyle = {width: lineWidth, height: lineHeight}
+  if (lineColor) {
+    lineStyle.backgroundColor = lineColor
+  }
 
-  const list = titleList.map(item => {
-    if (item) {
-      return item
-    }
-  })
+  const list = titleList.filter(item => item)
 
-  if (list.length < 1) {
+  if (list.length !== titleList.length) {
     return null
   }
 
-  const isScroll = list.length > 5
+  const isScroll = list.length > threshold
 
   function changeHandle(index) {
-    onClick && onClick({index, name: list[index]})
+    onClick && onClick({index, name:   list[index]})
     if (active !== index) {
       onChange(index)
     }
@@ -119,7 +124,7 @@ function HeaderList({titleList, active, color, background, lineWidth, lineHeight
           ))
         }
         <div className="ui-tabs-line-warp" ref={line}>
-          <div className="ui-tabs-line"  style={{width: lineWidth, height: lineHeight}}></div>
+          <div className="ui-tabs-line"  style={lineStyle}></div>
         </div>
       </div>
     </div>

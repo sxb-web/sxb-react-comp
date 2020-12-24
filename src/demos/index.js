@@ -13,6 +13,7 @@ import Toast from '../../packages/toast/demo'
 import Image from '../../packages/image/demo'
 import Sticky from '../../packages/sticky/Demo'
 import Tabs from '../../packages/tabs/Demo'
+import TabsTitle from '../../packages/tabs-title/Demo'
 
 export default function Demos() {
   return (
@@ -30,6 +31,7 @@ export default function Demos() {
       <Route path="/demos/image" children={<Image />} />
       <Route path="/demos/sticky" children={<Sticky />} />
       <Route path="/demos/tabs" children={<Tabs />} />
+      <Route path="/demos/tabs-title" children={<TabsTitle />} />
       <Redirect to="/demos/index" />
     </Switch>
   )
