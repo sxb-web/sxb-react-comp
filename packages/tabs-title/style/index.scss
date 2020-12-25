@@ -3,7 +3,10 @@
   overflow: hidden;
   width: 100%;
   user-select: none;
+  display: flex;
+  align-items: flex-start;
   .ui-tabs-title-list {
+    flex: 1;
     position: relative;
     display: flex;
     overflow-x: scroll;
@@ -18,6 +21,9 @@
         flex: 1 0 auto;
       }
     }
+  }
+  .ui-tabs-title-slot {
+    flex: none;
   }
   .ui-tabs-title-list-item {
     flex: 1;

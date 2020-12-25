@@ -9,17 +9,22 @@ export default function TabsTitle(props) {
     active = 0,
     list = [],
     threshold = 5,
-    children,
     isShowLine = true,
     lineStyle,
+    lineClass,
+    leftSlot,
+    rightSlot,
+    onClick,
+    children,
     onChange
   } = props
 
   const isScroll = list.length > threshold
 
   function changeHandle(index) {
+    onClick && onClick(index)
     if (active !== index) {
-      onChange(index)
+      onChange && onChange(index)
     }
   }
 
@@ -53,14 +58,20 @@ export default function TabsTitle(props) {
 
   return (
     <div className="ui-tabs-title">
+      {
+        leftSlot && <div className="ui-tabs-title-slot">{ leftSlot }</div>
+      }
       <ul className={isScroll ? 'ui-tabs-title-list ui-tabs-title-list-scroll' : 'ui-tabs-title-list'} ref={scroller}>
         {
           list.map((item, index) => <li className="ui-tabs-title-list-item" key={index} onClick={() => changeHandle(index)}>{children(item, index === active, index)}</li>)
         }
         {
-          isShowLine && <div className="ui-scroll-line" ref={line} style={lineStyle} />
+          isShowLine && <div className={`ui-scroll-line ${lineClass || ''}`} ref={line} style={lineStyle} />
         }
       </ul>
+      {
+        rightSlot && <div className="ui-tabs-title-slot">{ rightSlot }</div>
+      }
     </div>
   )
 }

@@ -179,8 +179,8 @@ ul li {
       width: 40px;
     }
     .name {
-      color: #fff;
-      background-color: #2F86F6;
+      color: #2F86F6;
+      background-color: #fff;
     }
   }
   .img-box {
@@ -201,7 +201,7 @@ ul li {
   }
   .name {
     font-size: 12px;
-    color: #99a1a8;
+    color: #fff;
     background-color: transparent;
     padding: 3px 6px;
     line-height: 1;
@@ -209,4 +209,20 @@ ul li {
     border-radius: 50px;
     margin-bottom: 5px;
   }
+}
+.up-arrow {
+  position: relative;
+  background-color: transparent !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-radius: 0 !important;
+  border-top: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #fff;
+  border-left: 6px solid transparent;
+}
+.section {
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #fff;
 }

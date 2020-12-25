@@ -78,12 +78,62 @@ export default function Page() {
            <div className="name">{item}</div>
            <div className="desc">今日优惠</div>
         </div>
-        )
-     }
-  </TabsTitle>
+     )
+  }
+</TabsTitle>
 
 ```
 
 ### 复杂用法2
+
+```jsx
+
+ <div style={{background: '#2F86F6', margin: '0 -10px'}}>
+    <TabsTitle
+       active={c}
+      list={list}
+      lineClass="up-arrow"
+      rightSlot={(
+         <div style={{height: '78px', lineHeight: '78px', color: '#fff', padding: '0 5px', boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.2)'}}>
+           展开
+         </div>
+      )}
+      onChange={e => setC(e)}>
+      {
+         (item, isActive) => (
+            <div className={isActive ? 'test-tabs-title-special active' : 'test-tabs-title-special'}>
+                <div className="img-box">
+                  <img src="https://sxbkj-public.oss-cn-hangzhou.aliyuncs.com/ClueDistribution/localnews/2020-05-21/1590044385653.jpg" />
+                </div>
+                <div className="name">{item}</div>
+            </div>
+         )
+      }
+        </TabsTitle>
+        <div className="section h-300"></div>
+      </div>
+```
+
+## API
+
+### props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| active | 激活项 | _number_ | 0 |
+| list | 数组 | _array_ | [] |
+| threshold | 阈值 | _number_ | 5 |
+| isShowLine | 是否显示线条 | _boolean_ | true |
+| lineStyle | 线条样式 | _object_ | null |
+| lineClass | 线条样式 | _object_ | null |
+| leftSlot | 左边插槽 | _object_ | null |
+| rightSlot | 右边插槽 | _object_ | null |
+
+### events
+
+| functions | 说明 | 
+| --- | --- |
+| onChange | active 变化 index => {} |
+| onClick | 点击事件 index => {} |
 
 

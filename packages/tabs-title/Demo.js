@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import TabsTitle from "./index"
 import './style/index'
 
@@ -9,7 +9,7 @@ export default function Page() {
   const [b, setB] = useState(0)
   const [c, setC] = useState(0)
   return (
-    <div className="demo-page">
+    <div className="demo-page" style={{background: '#f8f8f8'}}>
       <div className="demo-page-title">基础演示</div>
       <TabsTitle active={active} list={list.slice(0, 3)} onChange={e => setActive(e)}>
         {
@@ -38,18 +38,30 @@ export default function Page() {
         }
       </TabsTitle>
       <div className="demo-page-title">复杂用法二</div>
-      <TabsTitle active={c} list={list} onChange={e => setC(e)}>
-        {
-          (item, isActive) => (
-            <div className={isActive ? 'test-tabs-title-special active' : 'test-tabs-title-special'}>
-              <div className="img-box">
-                <img src="https://sxbkj-public.oss-cn-hangzhou.aliyuncs.com/ClueDistribution/localnews/2020-05-21/1590044385653.jpg" />
-              </div>
-              <div className="name">{item}</div>
+      <div style={{background: '#2F86F6', margin: '0 -10px'}}>
+        <TabsTitle
+          active={c}
+          list={list}
+          lineClass="up-arrow"
+          rightSlot={(
+            <div style={{height: '78px', lineHeight: '78px', color: '#fff', padding: '0 5px', boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.2)'}}>
+              展开
             </div>
-          )
-        }
-      </TabsTitle>
+          )}
+          onChange={e => setC(e)}>
+          {
+            (item, isActive) => (
+              <div className={isActive ? 'test-tabs-title-special active' : 'test-tabs-title-special'}>
+                <div className="img-box">
+                  <img src="https://sxbkj-public.oss-cn-hangzhou.aliyuncs.com/ClueDistribution/localnews/2020-05-21/1590044385653.jpg" />
+                </div>
+                <div className="name">{item}</div>
+              </div>
+            )
+          }
+        </TabsTitle>
+        <div className="section h-300"></div>
+      </div>
     </div>
   )
 }
