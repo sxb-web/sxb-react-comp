@@ -10,6 +10,7 @@ export default function TabsTitle(props) {
     list = [],
     threshold = 5,
     isShowLine = true,
+    background,
     lineStyle,
     lineClass,
     leftSlot,
@@ -20,6 +21,7 @@ export default function TabsTitle(props) {
   } = props
 
   const isScroll = list.length > threshold
+  const rootStyle = background ? { background } : {}
 
   function changeHandle(index) {
     onClick && onClick(index)
@@ -57,7 +59,7 @@ export default function TabsTitle(props) {
   }, [active])
 
   return (
-    <div className="ui-tabs-title">
+    <div className="ui-tabs-title" style={rootStyle}>
       {
         leftSlot && <div className="ui-tabs-title-slot">{ leftSlot }</div>
       }

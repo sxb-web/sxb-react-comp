@@ -58,12 +58,14 @@ import 'sxb-react-comp/lib/tabs/style/css'
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| active | 绑定当前选中标签的标识符 | _ string _ | `0` |
-| background | 标签栏背景色 | _string_ | `#fff` |
-| lineColor | 底部条颜色 | _string_ | `blue` |
-| lineWidth | 底部条宽度 | _string_ | `40px` |
-| lineHeight | 底部条高度 | _string_ | `3px` |
-| threshold | 滚动阈值 | _number_ | `5` |
+| active | 激活项 | _number_ | 0 |
+| threshold | 阈值 | _number_ | 5 |
+| background | 背景色 | _string_ | #fff |
+| isShowLine | 是否显示线条 | _boolean_ | true |
+| lineStyle | 线条样式 | _object_ | null |
+| lineClass | 线条样式 | _object_ | null |
+| leftSlot | 左边插槽 | _object_ | null |
+| rightSlot | 右边插槽 | _object_ | null |
 | sticky | 是否开启吸顶 | _string_ | `0px` |
 | offset | 吸顶距离 | _string_ | `0px` |
 | zIndex | 吸顶后的层级 | _string_ | `99` |

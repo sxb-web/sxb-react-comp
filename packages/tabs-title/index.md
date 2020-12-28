@@ -126,6 +126,7 @@ export default function Page() {
 | active | 激活项 | _number_ | 0 |
 | list | 数组 | _array_ | [] |
 | threshold | 阈值 | _number_ | 5 |
+| background | 背景色 | _string_ | #fff |
 | isShowLine | 是否显示线条 | _boolean_ | true |
 | lineStyle | 线条样式 | _object_ | null |
 | lineClass | 线条样式 | _object_ | null |

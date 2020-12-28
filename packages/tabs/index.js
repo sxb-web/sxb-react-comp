@@ -11,7 +11,7 @@ export default function Tabs(props) {
 
   const {
     active = 0,
-    threshold = 5,
+    threshold,
     isShowLine = true,
     lineStyle,
     lineClass,
@@ -49,17 +49,23 @@ export default function Tabs(props) {
         scroll={onScroll}
         container={node}
       >
-        <HeaderList
+        <TabsTitle
           active={active}
+          list={titleList}
           threshold={threshold}
-          titleList={titleList}
-          lineColor={lineColor}
+          isShowLine={isShowLine}
+          lineStyle={lineStyle}
+          lineClass={lineClass}
+          leftSlot={leftSlot}
+          rightSlot={rightSlot}
           background={background}
-          lineWidth={lineWidth}
-          lineHeight={lineHeight}
-          onChange={onChange}
           onClick={onClick}
-        />
+          onChange={onChange}
+        >
+          {
+            (item, isActive, index) => (<div key={index} className={isActive ? 'ui-tabs-nav active' : 'ui-tabs-nav'}>{item}</div>)
+          }
+        </TabsTitle>
       </Sticky>
       <ContentList active={active} lazy={lazy} list={children} />
     </div>

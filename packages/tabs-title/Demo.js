@@ -42,6 +42,7 @@ export default function Page() {
         <TabsTitle
           active={c}
           list={list}
+          background="transparent"
           lineClass="up-arrow"
           rightSlot={(
             <div style={{height: '78px', lineHeight: '78px', color: '#fff', padding: '0 5px', boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.2)'}}>
