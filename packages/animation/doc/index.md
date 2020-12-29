@@ -21,8 +21,8 @@ export default function Index() {
         <Animation name="zoom">zoom</Animation>
         <Animation name="slide-left">slide-left</Animation>
         <Animation name="slide-right">slide-right</Animation>
-        <Animation name="slide-top">slide-top</Animation>
-        <Animation name="slide-bottom">slide-bottom</Animation>
+        <Animation name="slide-up">slide-up</Animation>
+        <Animation name="slide-down">slide-down</Animation>
       </div>
     </div>
   )

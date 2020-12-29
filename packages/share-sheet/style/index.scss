@@ -1,0 +1,86 @@
+@import "../../style/variable";
+.ui-share-sheet {
+  background-color: #fff;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  font-family: $font-family;
+  user-select: none;
+  .ui-share-sheet-header {
+    padding: 12px 16px 4px;
+    text-align: center;
+  }
+  .ui-share-sheet-title {
+    margin-top: 8px;
+    color: $color-base;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .ui-share-sheet-desc {
+    display: block;
+    margin-top: 8px;
+    color: $color-desc;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .ui-share-sheet-scroller {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 16px 0 16px 8px;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      height: 1px;
+      width: 100%;
+      left: 16px;
+      opacity: 0.5;
+      background: $color-disabled;
+      transform: scaleY(0.5);
+    }
+    &:last-child {
+      &:after {
+        height: 0;
+      }
+    }
+  }
+  .ui-share-sheet-item {
+    flex: none;
+    text-align: center;
+    cursor: pointer;
+    &:active {
+      opacity: 0.8;
+    }
+  }
+  .ui-share-sheet-icon {
+    margin: 0 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+  }
+  .ui-share-sheet-name {
+    margin-top: 8px;
+    padding: 0 4px;
+    color: $color-sup;
+    font-size: 12px;
+  }
+  .ui-share-sheet-cancel {
+    background: $color-bg;
+    padding-top: 10px;
+    .ui-share-sheet-cancel-btn {
+      background-color: #fff;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+  }
+}

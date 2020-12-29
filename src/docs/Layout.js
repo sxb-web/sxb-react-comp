@@ -75,6 +75,11 @@ const config = [
         name: 'Toast 轻提示',
         path: '/toast',
         doc: require('../../packages/toast/doc.md').default
+      },
+      {
+        name: 'ShareSheet 分享',
+        path: '/share-sheet',
+        doc: require('../../packages/share-sheet/index.md').default
       }
     ]
   },
