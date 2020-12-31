@@ -80,6 +80,11 @@ const config = [
         name: 'ShareSheet 分享',
         path: '/share-sheet',
         doc: require('../../packages/share-sheet/index.md').default
+      },
+      {
+        name: 'PullRefresh 下拉刷新',
+        path: '/pull-refresh',
+        doc: require('../../packages/pull-refresh/index.md').default
       }
     ]
   },

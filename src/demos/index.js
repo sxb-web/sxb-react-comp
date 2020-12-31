@@ -15,6 +15,7 @@ import Sticky from '../../packages/sticky/Demo'
 import Tabs from '../../packages/tabs/Demo'
 import TabsTitle from '../../packages/tabs-title/Demo'
 import ShareSheet from '../../packages/share-sheet/Demo'
+import PullRefresh from '../../packages/pull-refresh/Demo'
 
 export default function Demos() {
   return (
@@ -34,6 +35,7 @@ export default function Demos() {
       <Route path="/demos/tabs" children={<Tabs />} />
       <Route path="/demos/tabs-title" children={<TabsTitle />} />
       <Route path="/demos/share-sheet" children={<ShareSheet />} />
+      <Route path="/demos/pull-refresh" children={<PullRefresh />} />
       <Redirect to="/demos/index" />
     </Switch>
   )

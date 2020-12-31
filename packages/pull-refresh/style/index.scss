@@ -1,0 +1,21 @@
+
+.ui-pull-refresh {
+  overflow: hidden;
+  user-select: none;
+  .ui-pull-refresh-track {
+    position: relative;
+    height: 100%;
+    transition-property: transform, -webkit-transform;
+  }
+  .ui-pull-refresh-head {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: translateY(-100%);
+  }
+}
