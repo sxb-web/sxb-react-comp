@@ -1,21 +1,87 @@
-import React, { useRef } from 'react'
+import React  from 'react'
 import PullRefresh from "./index"
+import Tabs from "../tabs"
+import Toast from "../toast"
+import { useMyReducer } from "../utils/hooks"
+import "../toast/style"
+import '../tabs/style'
 import './style'
-
 export default function Page() {
-  const pull = useRef(null)
+  const [state, dispatch] = useMyReducer({
+    active: 0,
+    showOne: false,
+    showTwo: false,
+    showThree: false
+  })
 
-  React.useEffect(() => {
-    console.log(pull.current)
-  }, [])
+  function refreshHandle(key) {
+    dispatch({[key]: true})
+    setTimeout(() => {
+      Toast('刷新成功')
+      dispatch({[key]: false})
+    }, 2000)
+  }
+
+  function renderCustom(status) {
+    if (status.isPulling) {
+      return (
+        <div>
+          <img
+            src="https://img.yzcdn.cn/vant/doge.png"
+            style={{ transform: `scale(${status.distance / 80})`, display: 'block', height: '60px' }}
+          />
+          <div>下拉即可刷新...</div>
+        </div>
+      )
+    }
+    if (status.isLoosing) {
+      return (
+        <div>
+          <img
+            src="https://img.yzcdn.cn/vant/doge.png"
+            style={{ display: 'block', height: '60px' }}
+          />
+          <div>释放就可以刷新哦</div>
+        </div>
+      )
+    }
+
+    if (status.isLoading) {
+      return (
+        <div>
+          <img
+            src="https://img.yzcdn.cn/vant/doge-fire.jpg"
+            style={{ display: 'block', height: '60px' }}
+          />
+          <div>拼命加载...</div>
+        </div>
+      )
+    }
+  }
 
   return (
     <div className="demo-page">
-      <PullRefresh>
-        <div style={{height: '600px'}}>
-          基础用法
+      <Tabs active={state.active} onChange={e => dispatch({active: e})}>
+        <div title="基础用法">
+          <PullRefresh loading={state.showOne} refresh={() => refreshHandle('showOne')}>
+            <div style={{height: '500px'}}>
+              基础用法
+            </div>
+          </PullRefresh>
         </div>
-      </PullRefresh>
+        <div title="自定义">
+          <PullRefresh
+            loading={state.showThree}
+            headHeight={80}
+            render={renderCustom}
+            refresh={() => refreshHandle('showThree')}
+          >
+            <div style={{height: '500px'}}>
+              自定义配置下拉
+            </div>
+          </PullRefresh>
+        </div>
+      </Tabs>
     </div>
   )
 }

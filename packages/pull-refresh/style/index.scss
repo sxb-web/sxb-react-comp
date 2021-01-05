@@ -1,4 +1,4 @@
-
+@import "../../style/variable";
 .ui-pull-refresh {
   overflow: hidden;
   user-select: none;
@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: $color-desc;
     transform: translateY(-100%);
   }
 }

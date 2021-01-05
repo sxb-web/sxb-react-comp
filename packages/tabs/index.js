@@ -32,8 +32,8 @@ export default function Tabs(props) {
     return null
   }
 
-  const titleList = children.map(item => (item.props.title || ''))
-
+  const childrenList = children instanceof Array ? children : [children]
+  const titleList = childrenList.map(item => (item.props.title || ''))
   useEffect(() => {
     if (sticky) {
       setNode(root.current)
@@ -67,7 +67,7 @@ export default function Tabs(props) {
           }
         </TabsTitle>
       </Sticky>
-      <ContentList active={active} lazy={lazy} list={children} />
+      <ContentList active={active} lazy={lazy} list={childrenList} />
     </div>
   )
 }
@@ -100,13 +100,16 @@ function ContentList({active, lazy, list}) {
     } else {
       childrenList[active].style.display = 'block'
       childrenList[active].setAttribute('class', childrenList[active].className + ' ' + 'complete' )
-      ReactDom.render(list[active], childrenList[active])
     }
     if (cache.current !== active) {
       childrenList[cache.current].style.display = 'none'
       cache.current = active
     }
   }, [active])
+
+  useEffect(() => {
+    ReactDom.render(list[active], content.current.childNodes[active])
+  }, [list[active]])
 
   return (
     <div className="ui-tabs-content" ref={content}>
