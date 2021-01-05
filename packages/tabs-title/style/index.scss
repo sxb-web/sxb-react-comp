@@ -2,10 +2,13 @@
 .ui-tabs-title {
   overflow: hidden;
   width: 100%;
-  user-select: none;
   display: flex;
   align-items: flex-start;
   background: #fff;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select:none;
   .ui-tabs-title-list {
     flex: 1;
     position: relative;

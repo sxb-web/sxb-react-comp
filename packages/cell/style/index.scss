@@ -8,10 +8,13 @@
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  user-select: none;
   background-color: #fff;
   cursor: pointer;
   border-radius: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select:none;
   .ui-cell_content {
     line-height: 1.2;
   }

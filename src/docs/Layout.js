@@ -82,6 +82,11 @@ const config = [
         doc: require('../../packages/share-sheet/index.md').default
       },
       {
+        name: 'ActionSheet 动作面板',
+        path: '/action-sheet',
+        doc: require('../../packages/action-sheet/index.md').default
+      },
+      {
         name: 'PullRefresh 下拉刷新',
         path: '/pull-refresh',
         doc: require('../../packages/pull-refresh/index.md').default
