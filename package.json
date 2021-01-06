@@ -9,6 +9,9 @@
     "site:deploy": "webpack --config webpack.config.js --mode production && gh-pages -d site",
     "package:build": "rimraf lib es && gulp"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "sideEffects": [
     "es/**/style/*",
     "lib/**/style/*",
@@ -38,10 +41,8 @@
     "react-dom": ">=16.9.0"
   },
   "browserslist": [
-    "last 2 versions",
-    "Firefox ESR",
-    "> 1%",
-    "ie >= 11"
+    "Android >= 4.0",
+    "iOS >= 8"
   ],
   "dependencies": {
     "@babel/runtime": "^7.11.2"
