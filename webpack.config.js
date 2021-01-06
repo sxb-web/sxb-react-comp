@@ -12,7 +12,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, './site'),
       filename: prodMode ? '[name].[hash:8].js' : '[name].js',
       chunkFilename: prodMode ? '[name].[chunkhash:8].js' : '[name].js',
-      publicPath: prodMode ? "/DawnUI/" : '/'
+      publicPath: prodMode ? "/sxb-react-comp/" : '/'
     },
     module: {
       rules: [

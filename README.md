@@ -4,7 +4,7 @@
 
 ## 预览效果
 
-[链接](https://LemonYo.github.io/sxb-react-comp/#/index)
+[链接](https://sxb-web.github.io/sxb-react-comp/)
 
 ## Usage
 
