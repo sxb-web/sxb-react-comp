@@ -87,6 +87,11 @@ const config = [
         doc: require('../../packages/action-sheet/index.md').default
       },
       {
+        name: 'DropdownMenu 动作面板',
+        path: '/dropdown-menu',
+        doc: require('../../packages/dropdown-menu/index.md').default
+      },
+      {
         name: 'PullRefresh 下拉刷新',
         path: '/pull-refresh',
         doc: require('../../packages/pull-refresh/index.md').default

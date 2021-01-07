@@ -17,6 +17,7 @@ import TabsTitle from '../../packages/tabs-title/Demo'
 import ShareSheet from '../../packages/share-sheet/Demo'
 import PullRefresh from '../../packages/pull-refresh/Demo'
 import ActionSheet from "../../packages/action-sheet/Demo"
+import DropdownMenu from "../../packages/dropdown-menu/Demo"
 
 export default function Demos() {
   return (
@@ -38,6 +39,7 @@ export default function Demos() {
       <Route path="/demos/share-sheet" children={<ShareSheet />} />
       <Route path="/demos/pull-refresh" children={<PullRefresh />} />
       <Route path="/demos/action-sheet" children={<ActionSheet />} />
+      <Route path="/demos/dropdown-menu" children={<DropdownMenu />} />
       <Redirect to="/demos/index" />
     </Switch>
   )

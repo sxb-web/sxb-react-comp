@@ -1,5 +1,30 @@
 @import "../../style/variable";
+@import "../../style/minxis";
 
 .ui-dropdown-menu {
   position: relative;
+  font-family: $font-family;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  .ui-dropdown-menu-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .ui-dropdown-menu-title {
+    position: relative;
+    max-width: 100%;
+    padding: 0 8px;
+    color: #323233;
+    font-size: 15px;
+    line-height: 22px;
+    @include text-ellipsis;
+  }
+}
+
+.ui-dropdown-menu-cnt {
+  background: #fff;
 }

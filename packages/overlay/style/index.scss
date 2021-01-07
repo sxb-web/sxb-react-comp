@@ -7,6 +7,7 @@
   bottom: 0;
   z-index: 1000;
   display: flex;
+  overflow: hidden;
   &.without-shade {
     pointer-events: none;
   }

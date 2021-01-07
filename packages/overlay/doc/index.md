@@ -63,6 +63,7 @@ export default function Index() {
 | lockScroll | 是否锁定背景滚动 | _boolean_ | `true` |
 | transparent | 遮罩是否是透明，默认是黑色半透明 | _boolean_ | `false` |
 | isShowLay | 是否展示遮罩 | _boolean_ | `true` |
+| rootStyle | 根样式 | _obj_ | `null` |
 | container | 挂在节点 | _Dom_ | `document.body` |
 
 ### Events

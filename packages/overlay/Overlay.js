@@ -16,7 +16,8 @@ export default function Overlay(props) {
     duration = 200, // 整个动画的执行时间
     close,
     container = document.body, // 挂在节点 默认是 document.body
-    children
+    children,
+    rootStyle
   } = props
 
   const _position = positionList.indexOf(position) > -1 ? position : 'fade'
@@ -66,7 +67,7 @@ export default function Overlay(props) {
 
   if (mounted) {
     return ReactDOM.createPortal (
-      <div className={`ui-overlay ${_position} ${!isShowLay ? 'without-shade' : ''}`}>
+      <div className={`ui-overlay ${_position} ${!isShowLay ? 'without-shade' : ''}`} style={rootStyle}>
         { isShowLay && (
           <Animation className={shadeCls} show={show} name="fade" duration={duration} onAnimationEnd={onAnimationEnd} onClick={overlayHandle} />
         ) }
