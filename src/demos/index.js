@@ -18,7 +18,8 @@ import ShareSheet from '../../packages/share-sheet/Demo'
 import PullRefresh from '../../packages/pull-refresh/Demo'
 import ActionSheet from "../../packages/action-sheet/Demo"
 import DropdownMenu from "../../packages/dropdown-menu/Demo"
-
+import Picker from "../../packages/picker/Demo"
+import VirtualKeyboard from "../../packages/virtual-keyboard/Demo"
 export default function Demos() {
   return (
     <Switch>
@@ -26,6 +27,7 @@ export default function Demos() {
       <Route path="/demos/icon" children={<Icon />} />
       <Route path="/demos/cell" children={<Cell />} />
       <Route path="/demos/input" children={<Input />} />
+      <Route path="/demos/picker" children={<Picker />} />
       <Route path="/demos/overlay" children={<Overlay />} />
       <Route path="/demos/animation" children={<Animation />} />
       <Route path="/demos/dialog" children={<Dialog />} />
@@ -40,6 +42,7 @@ export default function Demos() {
       <Route path="/demos/pull-refresh" children={<PullRefresh />} />
       <Route path="/demos/action-sheet" children={<ActionSheet />} />
       <Route path="/demos/dropdown-menu" children={<DropdownMenu />} />
+      <Route path="/demos/virtual-keyboard" children={<VirtualKeyboard />} />
       <Redirect to="/demos/index" />
     </Switch>
   )

@@ -7,6 +7,8 @@ import ReactDOM from "react-dom"
 window.toastCurrent = null
 
 function ToastType(props) {
+  const root = document.createElement('div')
+  let timer = null
   const {
     show = true,
     type = 'text', // 提示类型，可选loading fail success
@@ -21,13 +23,8 @@ function ToastType(props) {
     removeRoot()
   }
 
-  if (window.toastCurrent) {
-    ReactDOM.render(<></>, window.toastCurrent)
-  }
-
   function removeRoot() {
-    ReactDOM.render(React.cloneElement(component, {show: false}), root)
-    window.toastCurrent = null
+    ReactDOM.render(<></>, root)
     window.removeEventListener('popstate', removeRoot)
     if (timer) {
       clearTimeout(timer)
@@ -35,9 +32,6 @@ function ToastType(props) {
     }
   }
 
-  const root = document.createElement('div')
-  window.toastCurrent = root
-  let timer = null
   if (duration > 0) {
     timer = setTimeout(() => {
       removeRoot()
@@ -50,6 +44,8 @@ function ToastType(props) {
     <Overlay
       show={show}
       position={position}
+      lockScroll={false}
+      isShowLay={false}
       transparent
     >
       <div className={`ui-toast ${position} ${icon ? 'with-icon' : ''}`}>
@@ -69,32 +65,41 @@ function ToastType(props) {
   ReactDOM.render(component, root)
 }
 
-const Toast = function(props) {
+function helper(props, type) {
+  let params
   if (typeof props === 'object') {
-    return new ToastType(props)
+    params = {...props, type}
+  } else {
+    params = {message: props, type}
   }
-  return new ToastType({message: props})
+
+  if (type === 'success' || type === 'fail') {
+    if (!params.icon) {
+      params.icon = type
+    }
+  }
+
+  if (window.toastCurrent) {
+    window.toastCurrent.hide()
+  }
+  window.toastCurrent = new ToastType(params)
+  return  window.toastCurrent
+}
+
+const Toast = function(props) {
+  return helper(props)
 }
 
 Toast.loading = function (props) {
-  if (typeof props === 'object') {
-    return new ToastType({type: 'loading', ...props})
-  }
-  return new ToastType({type: 'loading', message: props})
+  return helper(props, 'loading')
 }
 
 Toast.success = function (props) {
-  if (typeof props === 'object') {
-    return new ToastType({type: 'success', icon: 'success', ...props})
-  }
-  return new ToastType({type: 'success', icon: 'success', message: props})
+  return helper(props, 'success')
 }
 
 Toast.fail = function (props) {
-  if (typeof props === 'object') {
-    return new ToastType({type: 'fail', icon: 'fail', ...props})
-  }
-  return new ToastType({type: 'fail', icon: 'fail', message: props})
+  return helper(props, 'fail')
 }
 
 export default Toast

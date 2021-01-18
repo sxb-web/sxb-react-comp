@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import TabsTitle from "./index"
 import './style/index'
+import Button from "../button"
+import "../button/style"
+import Overlay from "../overlay"
+import "../overlay/style"
 
 const list = ['新车', '二手车', '美容保养', '洗车打蜡', '装饰配件', '改装装潢', '汽车维修', '其他服务']
 export default function Page() {
   const [active, setActive] = useState(0)
-  const [a, setA] = useState(0)
-  const [b, setB] = useState(0)
-  const [c, setC] = useState(0)
+  const [a, setA] = useState(5)
+  const [b, setB] = useState(4)
+  const [c, setC] = useState(3)
+  const [d, setD] = useState(4)
+  const [show, setShow] = useState(false)
   return (
     <div className="demo-page" style={{background: '#f8f8f8'}}>
       <div className="demo-page-title">基础演示</div>
@@ -27,7 +33,7 @@ export default function Page() {
         }
       </TabsTitle>
       <div className="demo-page-title">复杂用法一</div>
-      <TabsTitle active={b} isShowLine={false} list={list} onChange={e => setB(e)}>
+      <TabsTitle active={b} list={list} onChange={e => setB(e)}>
         {
           (item, isActive) => (
             <div className={isActive ? 'test-tabs-title active' : 'test-tabs-title'}>
@@ -63,6 +69,51 @@ export default function Page() {
         </TabsTitle>
         <div className="section h-300"></div>
       </div>
+      <div className="demo-page-title">嵌套在弹窗中</div>
+      <Button type="primary" onClick={() => setShow(true)}>点击唤醒</Button>
+      <Overlay show={show} position="top" animation="slide-down" close={() => setShow(false)}>
+        <TabsTitle active={b} list={list} onChange={e => setB(e)}>
+          {
+            (item, isActive) => (
+              <div className={isActive ? 'test-tabs-title active' : 'test-tabs-title'}>
+                <div className="name">{item}</div>
+                <div className="desc">今日优惠</div>
+              </div>
+            )
+          }
+        </TabsTitle>
+      </Overlay>
+    </div>
+  )
+}
+
+function TextChild() {
+
+  const target = useRef(null)
+  //
+  // React.useEffect(() => {
+  //   console.log(target.current.offsetWidth)
+  // })
+
+  const measuredRef = useCallback(node => {
+    if (node !== null) {
+      console.log(node, node.getBoundingClientRect().height);
+    }
+  }, []);
+
+
+  // React.useEffect(() => {
+  //   // const node = React.findDOMNode(target.current)
+  //   // console.log(node)
+  //   console.log(document.getElementById('test'), target.current)
+  //   return () => {
+  //     console.log(document.getElementById('test').getBoundingClientRect())
+  //   }
+  // }, [])
+
+  return (
+    <div id="test" style={{width: "300px", height: "200px", background: '#fff'}} ref={measuredRef}>
+      <input  autoFocus />
     </div>
   )
 }

@@ -8,11 +8,11 @@ export default function Page() {
 
   useEffect(() => {
 
-    // Toast.success({message: '我先来', position: 'top', duration: 0})
-    // // Toast.success({message: '我先来2222', position: 'top'})
-    // setTimeout(() => {
-    //   Toast.fail('扑街啊 ')
-    // }, 6000)
+    const a = Toast.success({message: '6秒后手动关闭', position: 'top', duration: 0})
+    // Toast.success({message: '我先来2222', position: 'top'})
+    setTimeout(() => {
+      a.hide()
+    }, 6000)
 
   }, [])
 
@@ -20,7 +20,7 @@ export default function Page() {
     <div className="demo-page">
       <div className="demo-page-title">基础用法</div>
       <div className="demo-page-cnt">
-        <Cell title="文字提示" link  onClick={() => Toast('文字提示文字提示文字提示文字提示文字提示文字提示')} />
+        <Cell title="文字提示" link  onClick={() => Toast('提示')} />
         <Cell title="加载提示" link  onClick={() => Toast.loading('加载中...')} />
         <Cell title="加载提示2" link  onClick={() => Toast.loading({message: '加载中...', loadingType: 'circular'})} />
         <Cell title="成功提示" link  onClick={() => Toast.success('支付成功')} />

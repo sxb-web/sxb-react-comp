@@ -1,0 +1,78 @@
+@import "../../style/variable";
+
+.ui-virtual-keyboard {
+  font-family: $font-family;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select:none;
+  cursor: pointer;
+  background-color: $color-bg;
+  display: flex;
+  align-items: stretch;
+  padding: 10px 0 20px 10px;
+  img {
+    display: block;
+    width: 32px;
+  }
+  .ui-virtual-keyboard-left {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .ui-virtual-keyboard-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .ui-virtual-keyboard-actions {
+    flex: 1;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+  }
+  .ui-virtual-keyboard-actions-item {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    &.confirm {
+      background-color: $color-primary;
+      color: #fff;
+    }
+    &:active {
+      opacity: 0.6;
+    }
+  }
+  .ui-virtual-keyboard-item {
+    flex: 1;
+    flex-basis: 33%;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    &.full {
+      flex-basis: 66%;
+    }
+  }
+  .ui-virtual-keyboard-number {
+    background-color: #fff;
+    height: 48px;
+    font-size: 28px;
+    line-height: 1.5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}

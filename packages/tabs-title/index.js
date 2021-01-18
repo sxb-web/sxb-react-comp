@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { raf, cancelRaf } from "../utils"
-let rafId
 export default function TabsTitle(props) {
   const line = useRef(null)
+  const rafId = useRef(null)
   const scroller = useRef(null)
 
   const {
@@ -31,30 +31,44 @@ export default function TabsTitle(props) {
   }
 
   function animateScrollTo(from, to, scroller) {
-    cancelRaf(rafId)
+    rafId.current && cancelRaf(rafId.current)
     let count = 0
     const frames = Math.round((0.3 * 1000) / 16)
     function animate() {
       scroller.scrollLeft += (to - from) / frames
       if (++count < frames) {
-        rafId = raf(animate)
+        rafId.current = raf(animate)
+      } else {
+        cancelRaf(rafId)
       }
     }
     animate()
   }
 
-  useEffect(() => {
+  function doChange() {
     if (list.length > 0) {
-      const list = scroller.current.childNodes
+      const childList = scroller.current.childNodes
       if (isShowLine) {
-        const distance = Math.floor(list[active].offsetLeft + list[active].offsetWidth / 2 - line.current.offsetWidth / 2)
+        const distance = Math.floor(childList[active].offsetLeft + childList[active].offsetWidth / 2 - line.current.offsetWidth / 2)
         line.current.style = `transform: translateX(${distance}px)`
       }
       if (isScroll) {
-        let to = list[active].offsetLeft + list[active].offsetWidth / 2 - scroller.current.offsetWidth / 2
+        let to = childList[active].offsetLeft + childList[active].offsetWidth / 2 - scroller.current.offsetWidth / 2
         const from = scroller.current.scrollLeft
         animateScrollTo(from, to, scroller.current)
       }
+    }
+  }
+
+  useEffect(() => {
+    const isRender = scroller.current && scroller.current.offsetWidth
+    if (isRender) {
+      doChange()
+    } else {
+      const timer = setTimeout(() => {
+        doChange()
+        clearTimeout(timer)
+      }, 10)
     }
   }, [active])
 

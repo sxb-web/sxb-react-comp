@@ -52,8 +52,8 @@ export default function Overlay(props) {
     if (mounted) {
       if (lockScroll) {
         container.style.overflow = 'hidden'
-        container.appendChild(el.current)
       }
+      container.appendChild(el.current)
     }
     return () => {
       if (mounted) {

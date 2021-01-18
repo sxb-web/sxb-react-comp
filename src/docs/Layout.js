@@ -50,6 +50,16 @@ const config = [
         name: 'input 输入框（未完成）',
         path: '/input',
         doc: require('../../packages/input/doc/index.md').default
+      },
+      {
+        name: 'virtual-keyboard 虚拟键盘',
+        path: '/virtual-keyboard',
+        doc: require('../../packages/virtual-keyboard/index.md').default
+      },
+      {
+        name: 'picker 选择器',
+        path: '/picker',
+        doc: require('../../packages/picker/index.md').default
       }
     ]
   },
