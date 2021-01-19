@@ -4,10 +4,11 @@ import './style'
 
 export default function Page() {
 
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState('')
 
   function onInput(e) {
     console.log('input', e)
+    setValue(e)
   }
 
   function onChange(e) {
@@ -24,7 +25,8 @@ export default function Page() {
   return (
     <div className="demo-page">
       <div className="demo-page-title">基础演示</div>
-      <VirtualKeyboard value={value} onChange={onChange} onInput={onInput} onHide={onHide} onConfirm={onConfirm} />
+      <input value={value} readOnly />
+      <VirtualKeyboard type="number" maxlength={3} value={value} onChange={onChange} onInput={onInput} onHide={onHide} onConfirm={onConfirm} />
     </div>
   )
 }

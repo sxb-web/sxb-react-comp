@@ -9,6 +9,7 @@ export default function VirtualKeyboard(props) {
   const {
     value = '',
     type = 'number', // idCard， number， digit
+    maxlength = 999, // 最长位数
     onInput,
     onChange,
     onConfirm,
@@ -36,10 +37,15 @@ export default function VirtualKeyboard(props) {
   }
 
   function numberClick(value) {
-    const _v = inputValue + value
-    setInputValue(_v)
-    onInput && onInput(_v)
-    onChange && onChange(_v)
+    let _v = inputValue + value
+    if (type === 'number' && _v === '0') {
+      return
+    }
+    if (_v.length <= maxlength) {
+      setInputValue(_v)
+      onInput && onInput(_v)
+      onChange && onChange(_v)
+    }
   }
 
   return (

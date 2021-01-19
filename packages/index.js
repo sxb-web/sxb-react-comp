@@ -15,6 +15,8 @@ import Sticky from "./sticky"
 import Tabs from "./tabs"
 import TabsTitle from "./tabs-title"
 import Toast from "./toast"
+import VirtualKeyboard from "./virtual-keyboard"
+import Picker from "./picker"
 export {
   Button,
   ActionSheet,
@@ -32,5 +34,7 @@ export {
   Sticky,
   Tabs,
   TabsTitle,
-  Toast
+  Toast,
+  Picker,
+  VirtualKeyboard
 }
