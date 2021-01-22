@@ -125,6 +125,11 @@ const config = [
         name: 'tabs 标签页',
         path: '/tabs',
         doc: require('../../packages/tabs/index.md').default
+      },
+      {
+        name: 'swipe 轮播',
+        path: '/swipe',
+        doc: require('../../packages/swipe/index.md').default
       }
     ]
   }

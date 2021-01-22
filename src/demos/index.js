@@ -20,6 +20,7 @@ import ActionSheet from "../../packages/action-sheet/Demo"
 import DropdownMenu from "../../packages/dropdown-menu/Demo"
 import Picker from "../../packages/picker/Demo"
 import VirtualKeyboard from "../../packages/virtual-keyboard/Demo"
+import Swipe from "../../packages/swipe/Demo"
 export default function Demos() {
   return (
     <Switch>
@@ -43,6 +44,7 @@ export default function Demos() {
       <Route path="/demos/action-sheet" children={<ActionSheet />} />
       <Route path="/demos/dropdown-menu" children={<DropdownMenu />} />
       <Route path="/demos/virtual-keyboard" children={<VirtualKeyboard />} />
+      <Route path="/demos/swipe" children={<Swipe />} />
       <Redirect to="/demos/index" />
     </Switch>
   )
