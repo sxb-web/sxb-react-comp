@@ -21,11 +21,11 @@ export default function PullRefresh(props) {
     isPulling: false,
     isLoosing: false,
     isLoading: loading,
-    startY: 0,
     distance: 0
   })
 
   const track = useRef(null)
+  const startY = useRef(0)
   const headStyle = headHeight === 50 ? null : {height: headHeight + 'px'}
 
   const disabledPull = disabled || loading // 用户不能继续下拉
@@ -50,15 +50,18 @@ export default function PullRefresh(props) {
     if (disabledPull || getScrollTop(window) !== 0) {
       return
     }
-    const startY = e.pageY || e.clientY || e.touches[0].pageY || e.touches[0].clientY
-    dispatch({ startY })
+    startY.current = e.pageY || e.clientY || e.touches[0].pageY || e.touches[0].clientY
   }
 
   function onTouchMove(e) {
     if (disabledPull || getScrollTop(window) !== 0) {
       return
     }
-    const distance = (e.pageY || e.clientY || e.touches[0].pageY || e.touches[0].clientY) - state.startY
+    const distance = (e.pageY || e.clientY || e.touches[0].pageY || e.touches[0].clientY) - startY.current
+    if (distance > 0) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
     computeDistance(distance)
   }
 
@@ -87,15 +90,24 @@ export default function PullRefresh(props) {
     }
   }, [loading])
 
+  useEffect(() => {
+    track.current.addEventListener('touchstart', onTouchStart, {passive: false})
+    track.current.addEventListener('touchmove', onTouchMove, {passive: false})
+    track.current.addEventListener('touchcancel', onTouchEnd, {passive: false})
+    track.current.addEventListener('touchend', onTouchEnd, {passive: false})
+    return () => {
+      track.current.removeEventListener('touchstart', onTouchStart, {passive: false})
+      track.current.removeEventListener('touchmove', onTouchMove, {passive: false})
+      track.current.removeEventListener('touchcancel', onTouchEnd, {passive: false})
+      track.current.removeEventListener('touchend', onTouchEnd, {passive: false})
+    }
+  }, [state.distance])
+
   return (
     <div className="ui-pull-refresh">
       <div
         ref={track}
         className="ui-pull-refresh-track"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        onTouchCancel={onTouchEnd}
       >
         <div className="ui-pull-refresh-head" style={headStyle}>
           { render ? render(state) : <StatusText status={state} pullingText={pullingText} loosingText={loosingText} loadingText={loadingText} /> }
