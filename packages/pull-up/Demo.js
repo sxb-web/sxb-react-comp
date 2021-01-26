@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PullUp from './index'
 import './style'
 import Tabs from "../tabs"
@@ -21,7 +21,6 @@ export default function Demo() {
 
   function getList() {
     dispatch({loading: true})
-    console.log(state.list)
     const timer = setTimeout(() => {
       clearTimeout(timer)
       const data = new Array(10).fill('')
@@ -33,7 +32,6 @@ export default function Demo() {
 
   function getList1() {
     dispatch({loading1: true})
-    console.log(state.list1)
     const timer = setTimeout(() => {
       clearTimeout(timer)
       const data = new Array(10).fill('')
@@ -42,10 +40,6 @@ export default function Demo() {
       dispatch({list1: l, finished1: finished, loading1: false, error1: false})
     }, 1000)
   }
-
-  useEffect(() => {
-    console.log('change')
-  })
 
   return (
     <div className="demo-page">
