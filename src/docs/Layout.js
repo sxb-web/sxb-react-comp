@@ -105,6 +105,11 @@ const config = [
         name: 'PullRefresh 下拉刷新',
         path: '/pull-refresh',
         doc: require('../../packages/pull-refresh/index.md').default
+      },
+      {
+        name: 'PullUp 上拉加载',
+        path: '/pull-up',
+        doc: require('../../packages/pull-up/index.md').default
       }
     ]
   },

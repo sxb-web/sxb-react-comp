@@ -46,6 +46,25 @@ swipe children 每一个 item 代表一张轮播卡片
 
 ```
 
+### 自定义指示器
+通过renderIndicators 实现一个自定义指示器
+
+```js
+
+<Swipe
+  renderIndicators={index => (
+    <div className="custom" style={{background: 'rgba(0, 0, 0, 0.1)', color: '#fff', lineHeight: '22px', padding: '0 6px', position: 'absolute', right: '5px', bottom: '5px'}}>
+      {index + 1}/3
+    </div>
+  )}
+>
+ <div style={{background: '#D6EADF', height: '100px'}}>1</div>
+ <div style={{background: '#DDA789', height: '100px'}}>2</div>
+ <div style={{background: '#C3D899', height: '100px'}}>3</div>
+</Swipe>
+
+```
+
 ## API
 
 ### Props
@@ -60,6 +79,7 @@ swipe children 每一个 item 代表一张轮播卡片
 | width | 指定 swipe的width | _string_ | 100% |
 | height | 指定 swipe的height | _string_ | auto |
 | showIndicators | 是否显示指示器 | _boolean_ | true |
+| renderIndicators | 自定义指示器 | _function_ | null |
 | vertical | 是否垂直轮播，需要指定 swipe height | _boolean_ | false |
 | touchable | 是否可以手指切换， false 默认在外部添加一个遮罩 | _boolean_ | true |
 | threshold | 切换的阈值，可以设置为小数，如 0.1，或者整数，如 100。当该值为小数时，threshold 被当成一个百分比，最终的阈值为 slideWrapperWidth * threshold 或者 slideWrapperHeight * threshold。当该值为整数时，则阈值就是 threshold。 | _number_ | 100（px） |

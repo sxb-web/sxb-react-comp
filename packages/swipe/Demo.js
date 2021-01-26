@@ -32,6 +32,18 @@ export default function Page() {
         <div style={{background: '#DDA789', height: '100px'}}>2</div>
         <div style={{background: '#C3D899', height: '100px'}}>3</div>
       </Swipe>
+      <div className="demo-page-title">自定义indicators指示器</div>
+      <Swipe
+        renderIndicators={index => (
+          <div className="custom" style={{background: 'rgba(0, 0, 0, 0.1)', color: '#fff', lineHeight: '22px', padding: '0 6px', position: 'absolute', right: '5px', bottom: '5px'}}>
+            {index + 1}/3
+          </div>
+        )}
+      >
+        <div style={{background: '#D6EADF', height: '100px'}}>1</div>
+        <div style={{background: '#DDA789', height: '100px'}}>2</div>
+        <div style={{background: '#C3D899', height: '100px'}}>3</div>
+      </Swipe>
       <button onClick={next}>next</button>
     </div>
   )
