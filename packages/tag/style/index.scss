@@ -1,0 +1,68 @@
+@import "../../style/variable";
+.ui-tag {
+  font-family: $font-family;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 4px;
+  color: $color-desc;
+  background-color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 2px;
+  user-select: none;
+}
+.ui-tag-medium {
+  padding: 2px 6px;
+}
+.ui-tag-large {
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.ui-tag-round {
+  border-radius: 999px;
+}
+.ui-tag-primary {
+  background-color: $color-primary;
+  color: #fff;
+  &.ui-tag-plain {
+    background-color: #fff;
+    color: $color-primary;
+  }
+}
+.ui-tag-link {
+  background-color: $color-link;
+  color: #fff;
+  &.ui-tag-plain {
+    background-color: #fff;
+    color: $color-link;
+  }
+}
+.ui-tag-warn {
+  background-color: $color-warn;
+  color: #fff;
+  &.ui-tag-plain {
+    background-color: #fff;
+    color: $color-warn;
+  }
+}
+.ui-tag-error {
+  background-color: $color-error;
+  color: #fff;
+  &.ui-tag-plain {
+    background-color: #fff;
+    color: $color-error;
+  }
+}
+.ui-tag-plain::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 0.5px solid currentColor;
+  border-radius: inherit;
+  content: '';
+  pointer-events: none;
+}

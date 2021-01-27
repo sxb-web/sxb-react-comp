@@ -117,24 +117,29 @@ const config = [
     title: '展示组件',
     groups: [
       {
-        name: 'sticky 吸顶组件',
+        name: 'Sticky 吸顶组件',
         path: '/sticky',
         doc: require('../../packages/sticky/doc.md').default
       },
       {
-        name: 'tabs-title',
+        name: 'TabsTitle',
         path: '/tabs-title',
         doc: require('../../packages/tabs-title/index.md').default
       },
       {
-        name: 'tabs 标签页',
+        name: 'Tabs 标签页',
         path: '/tabs',
         doc: require('../../packages/tabs/index.md').default
       },
       {
-        name: 'swipe 轮播',
+        name: 'Swipe 轮播',
         path: '/swipe',
         doc: require('../../packages/swipe/index.md').default
+      },
+      {
+        name: 'Tag 标签',
+        path: '/tag',
+        doc: require('../../packages/tag/index.md').default
       }
     ]
   }

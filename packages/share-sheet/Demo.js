@@ -15,6 +15,7 @@ const options = [
 const options1 = [
   [
     { name: '微信', icon: 'wechat' },
+    { name: '朋友圈', icon: 'wechat-moments' },
     { name: '微博', icon: 'weibo' },
     { name: 'QQ', icon: 'qq' },
   ],

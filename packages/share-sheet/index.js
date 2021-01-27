@@ -1,7 +1,7 @@
 import React from 'react'
 import Overlay from "../overlay"
 
-const presetIcons = [ 'wechat', 'weibo', 'link', 'poster', 'qrcode', 'weapp-qrcode', 'qq' ] // 预设的icon
+const presetIcons = [ 'wechat', 'wechat-moments', 'weibo', 'link', 'poster', 'qrcode', 'weapp-qrcode', 'qq' ] // 预设的icon
 
 export default function ShareSheet(props) {
   const {
@@ -60,7 +60,7 @@ export default function ShareSheet(props) {
 
 function getUrl(icon) {
   if (presetIcons.indexOf(icon) > -1) {
-    return `https://img.yzcdn.cn/vant/share-icon-${icon}.png`
+    return `https://sxbkj-public.oss-cn-hangzhou.aliyuncs.com/fe/sxb-react-comp/share-sheet-${icon}.png`
   } else {
     return icon
   }
