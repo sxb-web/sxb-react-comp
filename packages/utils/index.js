@@ -84,3 +84,12 @@ export function cancelRaf(id) {
   const cancelAnimationFrame = window.cancelAnimationFrame || window.clearTimeout
   cancelAnimationFrame.call(window, id)
 }
+
+// 保留小数点后几位的正则
+export function createDigitReg(number = 2) {
+  let splitStr = ''
+  for (let i = 0; i < number; i++) {
+    splitStr += '\\d'
+  }
+  return new RegExp("^(\\-)*(\\d+)\\.(" + splitStr + ").*$")
+}

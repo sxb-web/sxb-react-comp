@@ -17,6 +17,8 @@ import TabsTitle from "./tabs-title"
 import Toast from "./toast"
 import VirtualKeyboard from "./virtual-keyboard"
 import Picker from "./picker"
+import PullUp from "./pull-up"
+import Tag from "./tag"
 export {
   Button,
   ActionSheet,
@@ -36,5 +38,7 @@ export {
   TabsTitle,
   Toast,
   Picker,
-  VirtualKeyboard
+  VirtualKeyboard,
+  PullUp,
+  Tag
 }

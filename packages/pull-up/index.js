@@ -15,6 +15,7 @@ function PullUp(props) {
     list,
     finishedText = '没有更多了',
     emptyText = '暂无数据',
+    emptyComponent,
     error = false,
     errorText = '请求失败，点击重新加载',
     immediateCheck = true, // 初始化是否自动加载
@@ -65,7 +66,7 @@ function PullUp(props) {
     }
     if (finished) {
       if (list && list.length === 0) {
-        return <div className="ui-pull-up-message">{ emptyText }</div>
+        return emptyComponent || <div className="ui-pull-up-message">{ emptyText }</div>
       } else {
         return <div className="ui-pull-up-message">{ finishedText }</div>
       }

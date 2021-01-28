@@ -18,40 +18,43 @@ import 'sxb-react-comp/lib/virtual-keyboard/style'
 
 ### 基础演示
 
+通过 type 值来指定 键盘的类型，目前支持 number digit idCard 三种类型。
+
 ```js
-import React, { useState } from 'react'
+import React  from 'react'
 import VirtualKeyboard from "./index"
 import './style'
 
 export default function Page() {
-
-  const [value, setValue] = useState(0)
-
   function onInput(e) {
     console.log('input', e)
   }
 
-  function onChange(e) {
-    console.log('change', e)
+  function onDelete() {
+    console.log('onDelete')
   }
 
-  function onConfirm(e) {
-    console.log('confirm', e)
+  function onConfirm() {
+    console.log('confirm')
   }
-  function onHide(e) {
-    console.log('onHide', e)
+  function onHide() {
+    console.log('onHide')
   }
 
   return (
     <div className="demo-page">
       <div className="demo-page-title">基础演示</div>
-      <VirtualKeyboard value={value} onChange={onChange} onInput={onInput} onHide={onHide} onConfirm={onConfirm} />
+      <VirtualKeyboard type="number" onInput={onInput} onHide={onHide} onConfirm={onConfirm} onDelete={onDelete} />
     </div>
   )
 }
 
 
 ```
+
+### 受控组件
+
+通过 control 和 value
 
 
 ## API

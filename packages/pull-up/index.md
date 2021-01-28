@@ -62,7 +62,7 @@ export default function Demo() {
 
 ### 空提示
 
-若列表数据为空，将 finished 设置成 true，并且将list 传入PullUp，即可显示空状态。不传 list 不会展示空状态
+若列表数据为空，将 finished 设置成 true，并且将list 传入PullUp，即可显示空状态。不传 list 不会展示空状态， 同时提供emptyComponent 支持自定义展示空状态
 
 ```jsx harmony
 <PullUp list={state.list} emptyText="暂无数据" loading={state.loading} finished={state.finished} error={state.error} load={getList}>
@@ -81,6 +81,7 @@ export default function Demo() {
 | list | 当前数组, 非必传，当你需要显示空数据状态传值 | _array_ | [] |
 | finishedText | 结束的文案 | _string_ | 没有更多了 |
 | emptyText | 空数据文案 | _string_ | 暂无数据 |
+| emptyComponent | 空数据组件 | _string_ |  |
 | errorText | 报错文案 | _string_ | 请求失败，点击重新加载 |
 | immediateCheck | 是否在初始化时立即执行滚动位置检查 | _boolean_ | true |
 | offset | 滚动条与底部距离小于 offset 时触发 | _number_ | 50（px） |
