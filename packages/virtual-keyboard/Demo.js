@@ -47,7 +47,7 @@ export default function Page() {
       </div>
       <VirtualKeyboard
         control
-        maxlength={3}
+        maxLength={3}
         value={value}
         type={type}
         onInput={e => setValue(e)}

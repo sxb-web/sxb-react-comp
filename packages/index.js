@@ -19,6 +19,7 @@ import VirtualKeyboard from "./virtual-keyboard"
 import Picker from "./picker"
 import PullUp from "./pull-up"
 import Tag from "./tag"
+import Swipe from "./swipe"
 export {
   Button,
   ActionSheet,
@@ -40,5 +41,6 @@ export {
   Picker,
   VirtualKeyboard,
   PullUp,
-  Tag
+  Tag,
+  Swipe
 }

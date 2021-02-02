@@ -47,9 +47,9 @@ const config = [
     title: '表单',
     groups: [
       {
-        name: 'input 输入框（未完成）',
+        name: 'input 输入框',
         path: '/input',
-        doc: require('../../packages/input/doc/index.md').default
+        doc: require('../../packages/input/index.md').default
       },
       {
         name: 'virtual-keyboard 虚拟键盘',

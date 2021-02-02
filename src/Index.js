@@ -7,10 +7,10 @@ export default function Index() {
     <div className="index-page">
       <div className="header">
         <img src="http://sxbcar.com/static/img/product_1.png" />
-        <h3>DawnUI</h3>
+        <h3>sxb-react-comp</h3>
       </div>
       <div className="index-container">
-        <h1>DawnUI</h1>
+        <h1>sxb-react-comp</h1>
         <div className="description">一个react 移动端组件库</div>
         <div>
           <Button tag="a" type="primary" round href="#/docs/quickstart" className="mr-15">开始使用</Button>

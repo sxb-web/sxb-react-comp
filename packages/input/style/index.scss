@@ -3,49 +3,52 @@
 .ui-input {
   position: relative;
   display: flex;
+  align-items: center;
   flex-wrap: nowrap;
-  align-items: flex-start;
   font-family: $font-family;
   color: $color-base;
   font-size: 16px;
-  padding: 0 15px;
-  &:after {
-    position: absolute;
-    content: '';
-    bottom: 0;
-    left: 15px;
-    right: 0;
-    height: 1px;
-    background-color: $border-color;
-    transform: translateY(0.5);
+  &.ui-input-border {
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: $border-color;
+      transform: scaleY(0.5);
+    }
   }
   .ui-input_label {
     height: 50px;
-    line-height: 50px;
     width: 80px;
     margin-right: 10px;
+    flex: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    line-height: 50px;
+    flex-wrap: nowrap;
+    user-select: none;
+    .ui-input-label-name {
+      position: relative;
+      &.required {
+        &:after {
+          position: absolute;
+          top: -6px;
+          right: -6px;
+          content: '*';
+          color: $color-error;
+        }
+      }
+    }
   }
   .ui-input_control {
     flex: 1;
     min-height: 50px;
     display: flex;
     align-items: center;
-  }
-  .ui-input_box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    .ui-input_format {
-      height: 100%;
-      width: 100%;
-      line-height: 50px;
-      color: $color-base;
-      font-size: 16px;
-      font-weight: 500;
-      &.placeholder {
-        color: $input-placeholder-color;
-      }
-    }
   }
   .ui-input_item {
     display: block;
@@ -60,10 +63,20 @@
     color: $color-base;
     font-size: 16px;
     font-weight: 500;
+    &.left {
+      text-align: left;
+    }
+    &.right {
+      text-align: right;
+    }
+    &.center {
+      text-align: center;
+    }
     &:focus ~ .ui-input_clear {
       display: block;
     }
     &.disabled {
+      user-select: none;
       color: $color-disabled;
     }
   }
@@ -77,9 +90,11 @@
     color: $input-placeholder-color;
   }
   .ui-input_right {
-
+    flex: none;
+    margin-left: 10px;
   }
   .ui-input_clear {
+    flex: none;
     display: none;
     padding: 0 5px;
     color: $input-placeholder-color;

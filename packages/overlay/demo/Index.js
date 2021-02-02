@@ -21,10 +21,14 @@ export default function Index() {
   return (
     <div className="demo-page">
       <div className="demo-page-title">基本用法</div>
+      {/*<input autoFocus />*/}
       <div className="demo-page-cnt">
         <Cell title="默认展示" value="点击开启" link onClick={() => dispatch({payload: {show: true}})} />
         <Overlay show={state.show} close={() => dispatch({payload: {show: false}})}>
-          <div className="section">默认展示</div>
+          <div className="section">
+            <div>默认展示</div>
+            <Child />
+          </div>
         </Overlay>
         <Cell title="顶部弹出" value="点击开启" link onClick={() => dispatch({payload: {up: true}})} />
         <Overlay show={state.up} position="top" animation="slide-down" close={() => dispatch({payload: {up: false}})}>
@@ -56,5 +60,18 @@ export default function Index() {
         </Overlay>
       </div>
     </div>
+  )
+}
+
+function Child() {
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      console.log(document.getElementById('root'))
+    }, 16)
+  }, [])
+
+  return (
+    <div style={{width: '100px', height: '100px', background: 'red'}} id="root">你好</div>
   )
 }

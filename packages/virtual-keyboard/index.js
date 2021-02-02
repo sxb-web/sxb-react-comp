@@ -13,7 +13,7 @@ export default function VirtualKeyboard(props) {
     control = false, // 是否开启受控模式
     value = '',
     decimal = 2,
-    maxlength = 1000,
+    maxLength = 1000,
     confirmText = '完成',
     onInput,
     onConfirm,
@@ -55,7 +55,7 @@ export default function VirtualKeyboard(props) {
       // 处理小数点的问题
       if (type === 'digit' && _v) {
         if (_v.indexOf('.') < 0) {
-          _v = parseFloat(_v).toString().substring(0, maxlength)
+          _v = parseFloat(_v).toString().substring(0, maxLength)
         } else {
           _v = _v.replace(/\.{2,}/g, '.') // 只保留第一个.清除多余的
           _v = _v.replace(".","$#$").replace(/\./g,"").replace("$#$",".")
@@ -66,8 +66,8 @@ export default function VirtualKeyboard(props) {
       if (_v.length > 18 && type === 'idCard') {
         return
       }
-      // number不能长于指定maxlength
-      if (_v.length > maxlength && type === 'number') {
+      // number不能长于指定maxLength
+      if (_v.length > maxLength && type === 'number') {
        return
       }
     }
@@ -110,14 +110,14 @@ export default function VirtualKeyboard(props) {
         </div>
         <div className="ui-virtual-keyboard-item">
           <div className="ui-virtual-keyboard-number" onClick={hideHandle}>
-            <img src="https://sxbkj-public.oss-cn-hangzhou.aliyuncs.com/fe/stream/vip/keyboard-hide.png" />
+            <img src="https://sxbkj-public.oss-cn-hangzhou.aliyuncs.com/fe/sxb-react-comp/keyboard-hide.png" />
           </div>
         </div>
       </div>
       <div className="ui-virtual-keyboard-right">
         <div className="ui-virtual-keyboard-actions">
           <div className="ui-virtual-keyboard-actions-item" onClick={deleteHandle}>
-            <img src="https://sxbkj-public.oss-cn-hangzhou.aliyuncs.com/fe/stream/vip/keyboard-delete.png" />
+            <img src="https://sxbkj-public.oss-cn-hangzhou.aliyuncs.com/fe/sxb-react-comp/keyboard-delete.png" />
           </div>
         </div>
         <div className="ui-virtual-keyboard-actions">
