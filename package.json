@@ -1,6 +1,6 @@
 {
   "name": "sxb-react-comp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Sxb react components.",
   "main": "lib/index.js",
   "module": "es/index.js",
