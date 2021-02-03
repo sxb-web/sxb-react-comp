@@ -61,15 +61,7 @@ export default function TabsTitle(props) {
   }
 
   useEffect(() => {
-    const isRender = scroller.current && scroller.current.offsetWidth
-    if (isRender) {
-      doChange()
-    } else {
-      const timer = setTimeout(() => {
-        doChange()
-        clearTimeout(timer)
-      }, 10)
-    }
+    doChange()
   }, [active])
 
   return (

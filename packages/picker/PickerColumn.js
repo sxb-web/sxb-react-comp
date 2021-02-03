@@ -31,16 +31,11 @@ export default function PickerColumn(props) {
   }
 
   useEffect(() => {
-    let time
     if (list && list.length > 0) {
-      time = setTimeout(() => {
-        init()
-        clearTimeout(time)
-      }, 16)
+      init()
     }
     return () => {
       BS.current && BS.current.destroy()
-      time && clearTimeout(time)
     }
   }, [])
 

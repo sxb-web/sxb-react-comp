@@ -66,9 +66,7 @@ export default function Index() {
 function Child() {
 
   React.useEffect(() => {
-    setTimeout(() => {
-      console.log(document.getElementById('root'))
-    }, 16)
+    console.log(document.getElementById('root'))
   }, [])
 
   return (

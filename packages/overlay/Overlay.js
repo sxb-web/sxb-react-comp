@@ -20,11 +20,13 @@ export default function Overlay(props) {
     rootStyle
   } = props
 
-  const _position = positionList.indexOf(position) > -1 ? position : 'fade'
+  const _position = positionList.indexOf(position) > -1 ? position : 'center '
 
   const [mounted, setMounted] = useState(false)
+  const [inserted, setInserted] = useState(false)
 
   const el = useRef(document.createElement('div'))
+
 
   const shadeCls = classNames(
     'ui-overlay-shade',
@@ -33,11 +35,8 @@ export default function Overlay(props) {
     },
   )
 
-  if (show && !mounted) { // show modal
-    setMounted(show)
-  }
-
-  function overlayHandle() {
+  function overlayHandle(e) {
+    e.stopPropagation()
     if (closeable) {
       close && close()
     }
@@ -54,16 +53,24 @@ export default function Overlay(props) {
         container.style.overflow = 'hidden'
       }
       container.appendChild(el.current)
+      setInserted(true)
     }
     return () => {
       if (mounted) {
         if (lockScroll) {
           container.style.overflow = ''
         }
+        setInserted(false)
         el.current && container.removeChild(el.current)
       }
     }
   }, [mounted])
+
+  useEffect(() => {
+    if (show) {
+      setMounted(true)
+    }
+  }, [show])
 
   if (mounted) {
     return ReactDOM.createPortal (
@@ -72,7 +79,7 @@ export default function Overlay(props) {
           <Animation className={shadeCls} show={show} name="fade" duration={duration} onAnimationEnd={onAnimationEnd} onClick={overlayHandle} />
         ) }
         <Animation className="ui-overlay-cnt" show={show} name={animation} duration={duration}>
-          {children}
+          {inserted && children}
         </Animation>
       </div>,
       el.current
