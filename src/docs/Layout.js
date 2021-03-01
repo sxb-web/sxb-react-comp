@@ -117,6 +117,11 @@ const config = [
     title: '展示组件',
     groups: [
       {
+        name: 'Badge 徽标',
+        path: '/badge',
+        doc: require('../../packages/badge/index.md').default
+      },
+      {
         name: 'Sticky 吸顶组件',
         path: '/sticky',
         doc: require('../../packages/sticky/doc.md').default

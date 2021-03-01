@@ -23,6 +23,7 @@ import VirtualKeyboard from "../../packages/virtual-keyboard/Demo"
 import Swipe from "../../packages/swipe/Demo"
 import PullUp from "../../packages/pull-up/Demo"
 import Tag from "../../packages/tag/Demo"
+import Badge from "../../packages/badge/Demo"
 export default function Demos() {
   return (
     <Switch>
@@ -49,6 +50,7 @@ export default function Demos() {
       <Route path="/demos/swipe" children={<Swipe />} />
       <Route path="/demos/pull-up" children={<PullUp />} />
       <Route path="/demos/tag" children={<Tag />} />
+      <Route path="/demos/badge" children={<Badge />} />
       <Redirect to="/demos/index" />
     </Switch>
   )

@@ -20,8 +20,10 @@ import Picker from "./picker"
 import PullUp from "./pull-up"
 import Tag from "./tag"
 import Swipe from "./swipe"
+import Badge from "./badge"
 export {
   Button,
+  Badge,
   ActionSheet,
   Animation,
   Cell,
