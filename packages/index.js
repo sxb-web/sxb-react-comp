@@ -21,6 +21,8 @@ import PullUp from "./pull-up"
 import Tag from "./tag"
 import Swipe from "./swipe"
 import Badge from "./badge"
+import ResultPage from "./result-page"
+
 export {
   Button,
   Badge,
@@ -44,5 +46,7 @@ export {
   VirtualKeyboard,
   PullUp,
   Tag,
-  Swipe
+  Swipe,
+  Badge,
+  ResultPage
 }

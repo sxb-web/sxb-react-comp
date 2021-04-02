@@ -44,6 +44,7 @@ const Swipe = React.forwardRef((props, ref) => {
       momentum: false,
       bounce: false,
       stopPropagation: false,
+      eventPassthrough: vertical ? 'horizontal' : 'vertical',
       slide: {
         loop,
         threshold,

@@ -13,7 +13,7 @@ export default function Page() {
   }
 
   return (
-    <div className="demo-page">
+    <div className="demo-page" style={{minHeight: '200vh'}}>
       <div className="demo-page-title">基础用法</div>
       <Swipe>
         <div style={{background: '#D6EADF', height: '100px'}}>1</div>

@@ -145,6 +145,11 @@ const config = [
         name: 'Tag 标签',
         path: '/tag',
         doc: require('../../packages/tag/index.md').default
+      },
+      {
+        name: 'ResultPage 结果页',
+        path: '/result-page',
+        doc: require('../../packages/result-page/index.md').default
       }
     ]
   }

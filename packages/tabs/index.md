@@ -48,9 +48,32 @@ import 'sxb-react-comp/lib/tabs/style/css'
 </Tabs>
 ```
 
-### 自定义
+### 自定义无标题
 
+只要不设置 title 即可
 
+```js
+
+<Tabs active={d} sticky onChange={index => setD(index)}>
+  {
+    new Array(10).fill('').map((item, index) => <div className="h-300 section" key={index}>内容{index}</div>)
+  }
+ </Tabs>
+        
+```
+
+### 动态隐藏
+
+```js
+
+<Tabs active={e} sticky onChange={index => setE(index)}>
+   <div className="h-300 section" title="标题一">内容1</div>
+   {
+     l.length > 4 && <div className="h-300 section" title="标题二">内容二</div>
+   }
+</Tabs>
+
+```
 
 ## API
 

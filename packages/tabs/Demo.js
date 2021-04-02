@@ -37,11 +37,20 @@ export default function Demo() {
           }
         </Tabs>
       </div>
-      <div className="demo-page-title">自定义</div>
+      <div className="demo-page-title">自定义无标题</div>
       <div style={{margin: '0 -10px'}}>
         <Tabs active={d} sticky onChange={index => setD(index)}>
           {
             new Array(10).fill('').map((item, index) => <div className="h-300 section" key={index}>内容{index}</div>)
+          }
+        </Tabs>
+      </div>
+      <div className="demo-page-title">动态隐藏</div>
+      <div style={{margin: '0 -10px'}}>
+        <Tabs active={e} sticky onChange={index => setE(index)}>
+          <div className="h-300 section" title="标题一">内容1</div>
+          {
+            l.length > 4 && <div className="h-300 section" title="标题二">内容二</div>
           }
         </Tabs>
       </div>

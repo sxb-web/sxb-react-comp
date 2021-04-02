@@ -24,6 +24,8 @@ import Swipe from "../../packages/swipe/Demo"
 import PullUp from "../../packages/pull-up/Demo"
 import Tag from "../../packages/tag/Demo"
 import Badge from "../../packages/badge/Demo"
+import ResultPage from "../../packages/result-page/Demo"
+
 export default function Demos() {
   return (
     <Switch>
@@ -51,6 +53,7 @@ export default function Demos() {
       <Route path="/demos/pull-up" children={<PullUp />} />
       <Route path="/demos/tag" children={<Tag />} />
       <Route path="/demos/badge" children={<Badge />} />
+      <Route path="/demos/result-page" children={<ResultPage />} />
       <Redirect to="/demos/index" />
     </Switch>
   )

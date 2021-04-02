@@ -32,8 +32,15 @@ export default function Tabs(props) {
     return null
   }
 
-  const childrenList = children instanceof Array ? children : [children]
-  const titleList = childrenList.map(item => (item.props.title || ''))
+  const _childrenList = children instanceof Array ? children : [children]
+  const childrenList = []
+  _childrenList.forEach(item => {
+    if (item) {
+      childrenList.push(item)
+    }
+  })
+  const titleList = childrenList.map(item => item.props.title)
+
   useEffect(() => {
     if (sticky) {
       setNode(root.current)
