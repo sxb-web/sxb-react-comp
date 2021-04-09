@@ -22,6 +22,7 @@ import Tag from "./tag"
 import Swipe from "./swipe"
 import Badge from "./badge"
 import ResultPage from "./result-page"
+import LazyLoad from './lazy-load'
 
 export {
   Button,
@@ -47,6 +48,6 @@ export {
   PullUp,
   Tag,
   Swipe,
-  Badge,
-  ResultPage
+  ResultPage,
+  LazyLoad
 }

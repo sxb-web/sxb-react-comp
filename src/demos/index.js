@@ -7,7 +7,6 @@ import Input from '../../packages/input/Demo'
 import Overlay from '../../packages/overlay/demo'
 import Animation from '../../packages/animation/demo'
 import Dialog from '../../packages/dialog/demo'
-import LazyLoad from '../../packages/lazy-load/demo'
 import Loading from '../../packages/loading/demo'
 import Toast from '../../packages/toast/demo'
 import Image from '../../packages/image/demo'
@@ -25,6 +24,7 @@ import PullUp from "../../packages/pull-up/Demo"
 import Tag from "../../packages/tag/Demo"
 import Badge from "../../packages/badge/Demo"
 import ResultPage from "../../packages/result-page/Demo"
+import LazyLoad from "../../packages/lazy-load/Demo"
 
 export default function Demos() {
   return (

@@ -110,6 +110,11 @@ const config = [
         name: 'PullUp 上拉加载',
         path: '/pull-up',
         doc: require('../../packages/pull-up/index.md').default
+      },
+      {
+        name: 'LazyLoad 懒加载',
+        path: '/lazy-load',
+        doc: require('../../packages/lazy-load/index.md').default
       }
     ]
   },
