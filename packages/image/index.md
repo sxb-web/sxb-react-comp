@@ -4,6 +4,7 @@
 ## 引入
 
 ```js
+
 import { Image } from 'sxb-react-comp'
 
 ```
