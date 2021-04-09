@@ -115,7 +115,7 @@ export default function Page() {
 | scale-down | 取 `none` 或 `contain` 中较小的一个                    |
 
 ### Events
-
+    
 | 事件名 | 说明               | 回调参数            |
 | ------ | ------------------ | ------------------- |
 | onLoad   | 图片加载完毕时触发 | -                   |
