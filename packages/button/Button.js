@@ -18,9 +18,9 @@ export default function Button(props) {
   const Component = tag
 
   const cls = classNames(
-    'ui-btn',
-    `ui-btn_${type}`,
-    `ui-btn_${size}`,
+    'ui-button',
+    `ui-button_${type}`,
+    `ui-button_${size}`,
     {
       'block': block,
       'plain': plain,

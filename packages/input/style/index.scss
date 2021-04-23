@@ -1,6 +1,6 @@
 @import "../../style/variable";
 
-.ui-input {
+.ui-sxb-input {
   position: relative;
   display: flex;
   align-items: center;
@@ -8,7 +8,7 @@
   font-family: $font-family;
   color: $color-base;
   font-size: 16px;
-  &.ui-input-border {
+  &.ui-sxb-input-border {
     &:after {
       position: absolute;
       content: '';
@@ -20,7 +20,7 @@
       transform: scaleY(0.5);
     }
   }
-  .ui-input_label {
+  .ui-sxb-input_label {
     height: 50px;
     width: 80px;
     margin-right: 10px;
@@ -31,7 +31,7 @@
     line-height: 50px;
     flex-wrap: nowrap;
     user-select: none;
-    .ui-input-label-name {
+    .ui-sxb-input-label-name {
       position: relative;
       &.required {
         &:after {
@@ -44,13 +44,13 @@
       }
     }
   }
-  .ui-input_control {
+  .ui-sxb-input_control {
     flex: 1;
     min-height: 50px;
     display: flex;
     align-items: center;
   }
-  .ui-input_item {
+  .ui-sxb-input_item {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -72,7 +72,7 @@
     &.center {
       text-align: center;
     }
-    &:focus ~ .ui-input_clear {
+    &:focus ~ .ui-sxb-input_clear {
       display: block;
     }
     &.disabled {
@@ -80,7 +80,7 @@
       color: $color-disabled;
     }
   }
-  textarea.ui-input_item {
+  textarea.ui-sxb-input_item {
     font-family: $font-family;
     height: auto;
     padding: 13px 0;
@@ -89,16 +89,23 @@
   input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color: $input-placeholder-color;
   }
-  .ui-input_right {
+  .ui-sxb-input_right {
     flex: none;
     margin-left: 10px;
   }
-  .ui-input_clear {
+  .ui-sxb-input_clear {
     flex: none;
     display: none;
     padding: 0 5px;
     color: $input-placeholder-color;
     font-size: 16px;
     margin-left: 5px;
+  }
+  .ui-sxb-input-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
   }
 }

@@ -1,6 +1,6 @@
 @import '../../style/variable';
 
-.ui-btn {
+.ui-button {
   position: relative;
   text-decoration: none;
   border-radius: $button-border-radius;
@@ -50,14 +50,14 @@
     opacity: .5;
   }
 }
-.ui-btn_default {
+.ui-button_default {
   background-color: #fff;
   color: $color-base;
   &.plain {
     background: transparent;
   }
 }
-.ui-btn_primary {
+.ui-button_primary {
   background-color: $color-primary;
   color: #fff;
   &:after {
@@ -71,7 +71,7 @@
     }
   }
 }
-.ui-btn_warn {
+.ui-button_warn {
   background-color: $color-warn;
   color: #fff;
   &:after {
@@ -85,7 +85,7 @@
     }
   }
 }
-.ui-btn_danger {
+.ui-button_danger {
   background-color: $color-error;
   color: #fff;
   &:after {
@@ -99,7 +99,7 @@
     }
   }
 }
-.ui-btn_niello {
+.ui-button_niello {
   background: linear-gradient(55deg, #FFDD9A, #DCAC8C);
   color: #5D2500;
   &:after {
@@ -107,26 +107,26 @@
   }
 }
 
-.ui-btn_normal {
+.ui-button_normal {
   font-size: 14px;
   height: 44px;
   line-height: 44px;
   padding: 0 15px;
 }
 
-.ui-btn_large {
+.ui-button_large {
   font-size: 16px;
   line-height: 50px;
   height: 50px;
   padding: 0 16px;
 }
-.ui-btn_small {
+.ui-button_small {
   height: 32px;
   line-height: 32px;
   padding: 0 10px;
   font-size: 14px;
 }
-.ui-btn_mini {
+.ui-button_mini {
   height: 24px;
   line-height: 24px;
   padding: 0 5px;

@@ -40,6 +40,11 @@ const config = [
         name: 'Image 图片',
         path: '/image',
         doc: require('../../packages/image/index.md').default
+      },
+      {
+        name: 'Layout 布局',
+        path: '/layout',
+        doc: require('../../packages/row/index.md').default
       }
     ]
   },

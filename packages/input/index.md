@@ -76,6 +76,7 @@ type digit 特殊处理 处理金额数字，默认支持小数点后两位，�
 | clearable | 是否显示清除按钮 | _boolean_ | `false` |
 | align | input文字位置 | _string_ | `left` |
 | labelWidth | label 宽度 | _number_ | `80` |
+| mask | 添加遮罩 | _boolean_ | `false` |
 
 
 ### Events

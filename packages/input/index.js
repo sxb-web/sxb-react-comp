@@ -23,11 +23,13 @@ export default function Input(props) {
     labelWidth,
     align = '',
     onChange,
+    mask = false,
+    onClick,
     ...other
   } = props
 
-  const cls = classNames("ui-input", {'ui-input-border': border}, className)
-  const inputCls = classNames("ui-input_item", { disabled }, align)
+  const cls = classNames("ui-sxb-input", {'ui-sxb-input-border': border}, className)
+  const inputCls = classNames("ui-sxb-input_item", { disabled }, align)
   const { _type, _maxLength } = getInputRealType(type, maxLength)
   let labelStyle
   if (labelWidth && labelWidth > 0) {
@@ -147,12 +149,12 @@ export default function Input(props) {
     <div className={cls}>
       {
         label && (
-          <div className="ui-input_label" style={labelStyle}>
-            <div className={required ? 'ui-input-label-name required' : 'ui-input-label-name'}>{label}</div>
+          <div className="ui-sxb-input_label" style={labelStyle}>
+            <div className={required ? 'ui-sxb-input-label-name required' : 'ui-sxb-input-label-name'}>{label}</div>
           </div>
         )
       }
-      <div className="ui-input_control">
+      <div className="ui-sxb-input_control">
         <input
           type={_type}
           value={formatHandle(value)}
@@ -164,10 +166,13 @@ export default function Input(props) {
           onChange={changeHandle}
           {...other}
         />
-        {(clearable && !readOnly && !disabled && value) && <div className="ui-input_clear" onMouseDown={clearOut}><Icon name="clear" /></div>}
+        {(clearable && !readOnly && !disabled && value) && <div className="ui-sxb-input_clear" onMouseDown={clearOut}><Icon name="clear" /></div>}
       </div>
       {
-        children && <div className="ui-input_right">{children}</div>
+        children && <div className="ui-sxb-input_right">{children}</div>
+      }
+      {
+        mask &&  <div className="ui-sxb-input-mask" onClick={onClick}  />
       }
     </div>
   )

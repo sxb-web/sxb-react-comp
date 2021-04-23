@@ -1,0 +1,35 @@
+@import "../../style/variable";
+.ui-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ui-row-align-flex-start {
+  align-items: flex-start;
+}
+.ui-row-align-flex-end {
+  align-items: flex-end;
+}
+.ui-row-align-center {
+  align-items: center;
+}
+.ui-row-align-baseline {
+  align-items: baseline;
+}
+.ui-row-align-stretch {
+  align-items: stretch;
+}
+.ui-row-justify-flex-start {
+  justify-content: flex-start;
+}
+.ui-row-justify-flex-end {
+  justify-content: flex-end;
+}
+.ui-row-justify-center {
+  justify-content: center;
+}
+.ui-row-justify-space-between {
+  justify-content: space-between;
+}
+.ui-row-justify-space-around {
+  justify-content: space-around;
+}

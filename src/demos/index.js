@@ -25,6 +25,7 @@ import Tag from "../../packages/tag/Demo"
 import Badge from "../../packages/badge/Demo"
 import ResultPage from "../../packages/result-page/Demo"
 import LazyLoad from "../../packages/lazy-load/Demo"
+import Layout from  "../../packages/row/Demo"
 
 export default function Demos() {
   return (
@@ -54,6 +55,7 @@ export default function Demos() {
       <Route path="/demos/tag" children={<Tag />} />
       <Route path="/demos/badge" children={<Badge />} />
       <Route path="/demos/result-page" children={<ResultPage />} />
+      <Route path="/demos/layout" children={<Layout />} />
       <Redirect to="/demos/index" />
     </Switch>
   )

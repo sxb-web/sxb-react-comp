@@ -55,6 +55,14 @@ export default function Index() {
           <Button type="primary" size="mini">获取验证码</Button>
         </Input>
       </div>
+      <div className="demo-page-title">自定义label 宽度</div>
+      <div className="demo-page-cnt">
+        <Input type="number" labelWidth={100} align="center" value={state.number} onChange={inputChange} clearable label="验证码" placeholder="请输入四位验证码" />
+      </div>
+      <div className="demo-page-title">遮罩</div>
+      <div className="demo-page-cnt">
+        <Input type="number" mask labelWidth={100} onClick={() => alert('111')} value="吹啊吹啊我的骄傲房中，崔不乱我阿斯利康的阿喀琉斯的价时空" clearable label="验证码" placeholder="请输入四位验证码" />
+      </div>
     </div>
   )
 }
