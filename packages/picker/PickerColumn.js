@@ -3,7 +3,7 @@ import BScroll from '@better-scroll/core'
 import Wheel from '@better-scroll/wheel'
 BScroll.use(Wheel)
 
-export default function PickerColumn(props) {
+function PickerColumn(props) {
 
   const wrapper = useRef(null)
   const BS = useRef(null)
@@ -11,6 +11,7 @@ export default function PickerColumn(props) {
   const {
     list = [],
     activeIndex = 0,
+    isRelation = true,
     onChange
   } = props
 
@@ -31,9 +32,24 @@ export default function PickerColumn(props) {
   }
 
   useEffect(() => {
-    if (list && list.length > 0) {
-      init()
+    if (BS.current) {
+      BS.current.refresh()
+    } else {
+      if (list.length > 0) {
+        init()
+      }
     }
+  }, [list])
+
+  useEffect(() => {
+    if (BS.current) {
+      if (isRelation) {
+        BS.current.wheelTo(activeIndex)
+      }
+    }
+  }, [activeIndex])
+
+  useEffect(() => {
     return () => {
       BS.current && BS.current.destroy()
     }
@@ -59,3 +75,5 @@ export default function PickerColumn(props) {
     </div>
   )
 }
+
+export default PickerColumn

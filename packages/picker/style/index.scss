@@ -96,4 +96,11 @@
     @include text-ellipsis;
     color: $color-base;
   }
+  .ui-picker-cnt {
+    display: flex;
+    .ui-picker-cnt-item {
+      flex: 1;
+      overflow: hidden;
+    }
+  }
 }
