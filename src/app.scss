@@ -226,3 +226,13 @@ ul li {
   border-radius: 8px;
   background-color: #fff;
 }
+.col-demo {
+  height: 40px;
+  text-align: center;
+  background-color: #2F86F6;
+  color: #fff;
+  line-height: 40px;
+  &.light {
+    background-color: #66c6f2;
+  }
+}

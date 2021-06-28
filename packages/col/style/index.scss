@@ -1,0 +1,10 @@
+@import "../../style/variable";
+
+.ui-col {
+  box-sizing: border-box;
+}
+
+@for $i from 1 through 24 {
+  .ui-col-span-#{$i} { width: (100% / 24) * $i; }
+  .ui-col-offset-#{$i} { margin-left: (100% / 24) * $i; }
+}

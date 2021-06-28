@@ -25,3 +25,40 @@ Layout 组件提供了 24列栅格，通过在 Col 上添加 span 属性设置�
 </Row>
 
 ```
+
+### 设置列元素间距
+通过 gutter 属性可以设置列元素之间的间距，默认间距为 0。
+
+```jsx harmony
+
+<Row gutter="20">
+   <Col span="8">span="8"</Col>
+   <Col span="8">span="8"</Col>
+   <Col span="8">span="8"</Col>
+</Row>
+
+```
+### Flex 布局
+
+默认使用flex 布局，便于灵活的排列和对其， align 属性 和 justify 分别对应 flex 属性的 align-items 和 justify-content
+
+```jsx harmony
+// 左对齐
+<Row>
+   <Col span="6">span="6"</Col>
+   <Col span="6">span="6"</Col>
+   <Col span="6">span="6"</Col>
+</Row>
+// 居中
+<Row justify="center">
+   <Col span="6">span="6"</Col>
+   <Col span="6">span="6"</Col>
+   <Col span="6">span="6"</Col>
+</Row>
+// 右对齐
+<Row justify="flex-end">
+   <Col span="6">span="6"</Col>
+   <Col span="6">span="6"</Col>
+   <Col span="6">span="6"</Col>
+</Row>
+```
