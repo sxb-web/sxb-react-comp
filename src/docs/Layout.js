@@ -157,6 +157,11 @@ const config = [
         doc: require('../../packages/tag/index.md').default
       },
       {
+        name: 'NoticeBar 通知栏',
+        path: '/notice-bar',
+        doc: require('../../packages/notice-bar/index.md').default
+      },
+      {
         name: 'ResultPage 结果页',
         path: '/result-page',
         doc: require('../../packages/result-page/index.md').default

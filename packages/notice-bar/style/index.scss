@@ -1,0 +1,23 @@
+@import "../../style/variable";
+.ui-notice-bar {
+  font-family: $font-family;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  color: #ed6a0c;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #fffbe8;
+  .ui-notice-bar-icon {
+    flex: none;
+    font-size: 16px;
+  }
+  .ui-notice-bar-box {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}

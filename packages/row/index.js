@@ -4,7 +4,6 @@ export const gutterContext = React.createContext(0)
 export default function Row(props) {
 
   const  {
-    type,
     gutter = 0,
     justify = 'flex-start',
     align = 'flex-start',
