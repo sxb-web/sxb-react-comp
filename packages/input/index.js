@@ -128,9 +128,9 @@ export default function Input(props) {
   function getInputRealType(type, maxLength) {
     if (type === 'idCard') {
       return {_type: 'text', _maxLength: 18}
-    } else if (type === 'digit' || type === 'number' || type === 'bankCard') {
-      return {_type: 'tel', _maxLength: maxLength}
-    } else if (type === 'phone') {
+    } else if (type === 'digit') {
+      return {_type: 'number', _maxLength: maxLength}
+    } else if (type === 'phone' || type === 'number' || type === 'bankCard') {
       return {_type: 'tel', _maxLength: 11}
     } else {
       return {_type: type, _maxLength: maxLength}
